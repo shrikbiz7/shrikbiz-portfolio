@@ -5,7 +5,7 @@ Vue.use(Vuetify);
 
 export default new Vuetify({
     theme: {
-        dark: true,
+        dark: false,
         options: {
             customProperties: true,
         },
@@ -18,6 +18,7 @@ export default new Vuetify({
                 info: '#2196F3',
                 success: '#4CAF50',
                 warning: '#FFC107',
+                textBackGround: '#F5F6F8',
             },
             dark: {
                 primary: '#263238',
@@ -27,6 +28,7 @@ export default new Vuetify({
                 info: '#2196F3',
                 success: '#4CAF50',
                 warning: '#FFC107',
+                textBackGround: '#575f69',
             },
         },
     },
