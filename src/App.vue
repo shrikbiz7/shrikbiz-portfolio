@@ -1,8 +1,6 @@
 <template>
     <v-app id="app">
-        <NavBar />
-        <v-responsive class="overflow-y-auto" max-height="calc(100vh - 120px)">
-            <SideBar id="sidebar" />
+        <v-responsive class="overflow-y-auto" max-height="calc(100vh - 56.8px)">
             <v-main>
                 <router-view />
             </v-main>
