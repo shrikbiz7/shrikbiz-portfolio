@@ -1,7 +1,7 @@
 <template>
     <v-container id="scroll-target" style="max-height: calc(100vh - 56.8px); height: auto" class="overflow-y-auto">
         <v-row v-scroll:#scroll-target="onScroll" justify="center" class="masthead primary" id="masterHead">
-            <v-col cols="auto button">
+            <v-col cols="auto">
                 <v-lazy
                     v-model="isActive"
                     :options="{
@@ -10,18 +10,36 @@
                     min-height="200"
                     transition="fade-transition"
                 >
-                    <h1
-                        style="color: black"
-                        :style="{
-                            width: '100%',
-                            marginTop: '300px',
-                            marginLeft: doubleScrollValue + 'px',
-                            overflowX: 'hidden',
-                        }"
-                    >
-                        {{ scrollInvoked }}
-                        <Roller :charList="charList" defaultChar=" " :transition="1" text="Shrikant Patel"></Roller>
-                    </h1>
+                    <div width="100%">
+                        <h1
+                            :style="{
+                                marginTop: '300px',
+                                fontFamily: 'Helvetica',
+                                width: '100%',
+                                marginLeft: titleSpeed + 'px',
+                                overflowX: 'hidden',
+                            }"
+                        >
+                            <!-- {{ scrollInvoked }} -->
+                            <Roller
+                                :wordWrap="10"
+                                :charList="charList"
+                                defaultChar=" "
+                                :transition="1"
+                                text="Shrikant P"
+                            ></Roller>
+                        </h1>
+                        <h4
+                            align="center"
+                            :style="{
+                                width: '100%',
+                                marginLeft: subTitleSpeed + 'px',
+                                overflowX: 'none',
+                            }"
+                        >
+                            FrontEnd Software Engineer
+                        </h4>
+                    </div>
                 </v-lazy>
             </v-col>
         </v-row>
@@ -54,8 +72,11 @@ export default class HomePage extends Vue {
         window.addEventListener('scroll', this.onScroll);
     }
 
-    get doubleScrollValue(): number {
-        return this.scrollInvoked * 3;
+    get titleSpeed(): number {
+        return Math.pow(this.scrollInvoked, 1.35);
+    }
+    get subTitleSpeed(): number {
+        return Math.pow(this.scrollInvoked, 1.2);
     }
 
     get charList(): string[] {
@@ -82,19 +103,19 @@ export default class HomePage extends Vue {
     //     rgb(57, 73, 171) 89%
     // ) !important;
     // margin: auto;
-    color: white;
 }
 
 h1 {
     font-size: 4em;
     font-weight: normal;
 }
+h4 {
+    font-size: 2em;
+    font-weight: normal;
+}
 
 h2 {
     font-size: 1.7em;
     font-weight: normal;
-}
-.para {
-    margin-top: 300px;
 }
 </style>
