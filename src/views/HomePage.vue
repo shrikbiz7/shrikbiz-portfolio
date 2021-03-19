@@ -1,73 +1,81 @@
 <template>
-    <v-container
+    <div
         id="scroll-target"
-        style="max-height: calc(100vh - 56.8px); height: auto; overflow-x: hidden"
+        style="max-height: calc(100vh - 56.8px); width: 100%; height: auto; overflow-x: hidden"
         class="overflow-y-auto"
     >
-        <v-lazy
-            v-model="isActive"
-            :options="{
-                threshold: 0.1,
-            }"
-            min-height="200"
-            transition="fade-transition"
-        >
-            <v-row v-scroll:#scroll-target="onScroll" justify="center" class="masthead" id="masterHead">
+        <div>
+            <v-row v-scroll:#scroll-target="onScroll" justify="center" class="masterhead">
                 <v-col cols="auto">
-                    <v-img
-                        max-height="400"
-                        max-width="1300"
-                        :style="{ height: imgHeight + 'px' }"
-                        style="margin: 400px 0; overflow-x: hidden"
-                        src="@/assets/darkthemeWP.jpeg"
-                    >
-                        <div width="100%" style="color:white" align="center">
-                            <h1
-                                :style="{
-                                    marginTop: '50px',
-                                    fontFamily: 'Helvetica',
-                                    width: '100%',
-                                    overflowX: 'hidden',
-                                }"
-                            >
-                                <span
-                                    v-for="(letter, index) in 'ShrikantPatel'"
-                                    :key="index"
+                    <div style="width: 100%; height: 500px; overflow-y: hidden; overflow-x: hidden">
+                        <v-img
+                            :height="imgHeight"
+                            style="margin: 10rem 0; overflow-x: hidden"
+                            src="@/assets/darkthemeWP.jpeg"
+                        >
+                            <div width="100%" style="color:white" align="center">
+                                <h1
                                     :style="{
-                                        fontSize: fontSize + 'px',
+                                        marginTop: '50px',
+                                        fontFamily: 'Helvetica',
+                                        width: '100%',
+                                        overflowX: 'hidden',
                                     }"
                                 >
-                                    {{ letter }}
-                                </span>
-                            </h1>
-                            <h4
-                                align="center"
-                                :style="{
-                                    width: '100%',
-                                    overflowX: 'hidden',
-                                }"
-                            >
-                                FrontEnd Software Engineer
-                            </h4>
-                        </div>
-                    </v-img>
+                                    <span
+                                        v-for="(letter, index) in 'ShrikantPatel'"
+                                        :key="index"
+                                        :style="{
+                                            fontSize: titleSize + 'px',
+                                            marginLeft: titleSpacing + 'px',
+                                        }"
+                                    >
+                                        {{ letter }}
+                                    </span>
+                                </h1>
+                                <h4
+                                    align="center"
+                                    :style="{
+                                        width: '100%',
+                                        overflowX: 'hidden',
+                                        fontSize: subTitleSize + 'px',
+                                    }"
+                                >
+                                    FrontEnd Software Engineer
+                                </h4>
+                            </div>
+                        </v-img>
+                    </div>
+                    <v-container>
+                        <p style="font-size: 2rem; text-align: center; margin-bottom: 2rem">
+                            Software Developer | Web Designer | Algorithm Enthusiastic | rookie Content Creator |
+                            ex-Footballer (Soccer) | Painter | Cook | Star Wars | Marvels | Game of Thrones | Gym
+                            Enthusiastic
+                        </p>
+                        <p style="text-align: center">
+                            Hi, I am Shrikant Patel from Denver, Colorado with ~3 years of experience as FrontEnd
+                            Software Engineer. Event though first framework that I learned was Angular, I generally work
+                            on Vue and React. When I am not programming, I like to go for hiking, cooking, or watch few
+                            Real Madrid or Juventus games. I have currently started to create content on FrontEnd
+                            Development related topics for Instagram, and soon for YouTube.
+                        </p>
+                    </v-container>
                 </v-col>
             </v-row>
-        </v-lazy>
-        <v-lazy
-            v-model="isActive"
-            :options="{
-                threshold: 0.1,
-            }"
-            min-height="200"
-            transition="fade-transition"
-        >
-            <v-row v-scroll:#scroll-target="onScroll" justify="center" class="secondHead primary" id="masterHead">
-                <v-col cols="auto">
-                    <div align="center">
+        </div>
+        <v-row v-scroll:#scroll-target="onScroll" justify="center" class="secondHead primary">
+            <v-col cols="auto">
+                <div align="center" style="margin-top: 10rem">
+                    <v-lazy
+                        v-model="isActive"
+                        :options="{
+                            threshold: 0.1,
+                        }"
+                        min-height="200"
+                        transition="fade-transition"
+                    >
                         <h1
                             :style="{
-                                marginTop: '300px',
                                 width: '100%',
                                 fontFamily: 'Helvetica',
                                 marginLeft: titleSpeed + 'px',
@@ -82,30 +90,26 @@
                                 text="Shrikant P"
                             ></Roller>
                         </h1>
-                        <h4
-                            align="center"
-                            :style="{
-                                width: '100%',
-                                marginLeft: subTitleSpeed + 'px',
-                                overflowX: 'none',
-                            }"
-                        >
-                            FrontEnd Software Engineer
-                        </h4>
-                    </div>
-                </v-col>
-            </v-row>
-        </v-lazy>
-    </v-container>
-
-    <!-- <v-container v-scroll.#masterhead="onScroll">
-        
-    </v-container> -->
+                    </v-lazy>
+                    <h4
+                        align="center"
+                        :style="{
+                            width: '100%',
+                            marginLeft: subTitleSpeed + 'px',
+                            overflowX: 'none',
+                        }"
+                    >
+                        FrontEnd Software Engineer
+                    </h4>
+                </div>
+            </v-col>
+        </v-row>
+    </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { Component, Watch } from 'vue-property-decorator';
+import { Component, Emit, Watch, Prop } from 'vue-property-decorator';
 import { getModule } from 'vuex-module-decorators';
 import store from '@/store/store';
 import { Characters } from '@/constants/char';
@@ -116,19 +120,25 @@ import { Characters } from '@/constants/char';
     },
 })
 export default class HomePage extends Vue {
+    @Prop() handleScrollVariable: any;
     storeModule: any;
     isActive: boolean = false;
-    scrollInvoked: number = 0;
+    scrollVariable: number = 0;
+
+    @Emit('handleScrollVariable')
+    handleScroll(variable: any) {}
 
     async created() {
         if (!this.storeModule) this.storeModule = getModule(store, this.$store);
     }
 
     get titleSpeed(): number {
-        return Math.pow(this.scrollInvoked, 1.35);
+        let constant: number = 860;
+        return this.scrollVariable > constant ? Math.pow(this.scrollVariable - constant, 1.35) : 0;
     }
     get subTitleSpeed(): number {
-        return Math.pow(this.scrollInvoked, 1.2);
+        let constant: number = 860;
+        return this.scrollVariable > constant ? Math.pow(this.scrollVariable - constant, 1.2) : 0;
     }
 
     get charList(): string[] {
@@ -140,35 +150,45 @@ export default class HomePage extends Vue {
     }
 
     get imgHeight() {
-        let number: number = this.scrollInvoked / 20;
-        let constant = 300;
-        constant -= number;
+        let number: number = this.scrollVariable;
+        let constant = 400;
+        constant += number;
         return constant ? constant : 0;
     }
 
-    get fontSize(): number {
-        let number: number = this.scrollInvoked / 45;
+    get titleSize(): number {
+        let number: number = this.scrollVariable / 45;
         number += 100;
+        return number;
+    }
+    get subTitleSize(): number {
+        let number: number = this.scrollVariable / 50;
+        let constant = 50;
+        constant -= number;
+        return constant;
+    }
+
+    get titleSpacing(): number {
+        let number: number = this.scrollVariable / 10;
         return number;
     }
 
     onScroll(event: any) {
-        this.scrollInvoked = event.target.scrollTop;
+        this.scrollVariable = event.target.scrollTop;
+        this.handleScroll(this.scrollVariable);
     }
 }
 </script>
 
 <style scoped lang="scss">
-.masthead {
-    // align-items: center;
-    height: auto;
+.masterhead {
+    height: 100vh;
     // background-image: linear-gradient(
     //     135deg,
     //     rgb(38, 50, 56) 0%,
     //     rgb(88, 101, 224) 69%,
     //     rgb(57, 73, 171) 89%
     // ) !important;
-    // margin: auto;
 }
 
 .secondHead {
