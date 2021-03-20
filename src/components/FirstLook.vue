@@ -7,7 +7,7 @@
                         <h1
                             :style="{
                                 marginTop: '50px',
-                                fontFamily: 'Helvetica',
+                                fontFamily: 'Montserrat, sans-serif',
                                 width: '100%',
                                 overflowX: 'hidden',
                             }"
@@ -95,4 +95,34 @@ export default class FirstLook extends vue {
     }
 }
 </script>
-<style></style>
+<style lang="scss" scoped>
+.masterhead {
+    height: 100vh;
+    // background-image: linear-gradient(
+    //     135deg,
+    //     rgb(38, 50, 56) 0%,
+    //     rgb(88, 101, 224) 69%,
+    //     rgb(57, 73, 171) 89%
+    // ) !important;
+}
+h1 {
+    font-size: 4em;
+    font-weight: normal;
+    background: -webkit-linear-gradient(#eee, #333);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h4 {
+    font-weight: normal;
+    background: -webkit-linear-gradient(rgba(44, 38, 38, 0.726), rgba(233, 233, 233, 0.849));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+}
+</style>

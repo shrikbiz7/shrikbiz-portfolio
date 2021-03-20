@@ -7,6 +7,46 @@
         <FirstLook />
         <v-row v-scroll:#scroll-target="onScroll" justify="center" class="secondHead primary">
             <v-col cols="auto">
+                <div align="center">
+                    <v-lazy
+                        v-model="isActive"
+                        :options="{
+                            threshold: 0.1,
+                        }"
+                        min-height="200"
+                        transition="fade-transition"
+                    >
+                        <h1
+                            class="section"
+                            :style="{
+                                width: '100%',
+                                fontFamily: 'Montserrat, sans-serif',
+                                overflowX: 'hidden',
+                                opacity: changeOpacity,
+                                backgroundImage: 'linear-gradient(#999, #000)',
+                                webkitBackgroundClip: 'text',
+                                color: 'transparent',
+                            }"
+                        >
+                            Work
+                        </h1>
+                    </v-lazy>
+                    <h4
+                        align="center"
+                        :style="{
+                            width: '100%',
+                            overflowX: 'none',
+                        }"
+                    >
+                        FrontEnd Software Engineer
+                    </h4>
+                </div>
+            </v-col>
+        </v-row>
+
+        <!-- the slide in and roller one -->
+        <!-- <v-row v-scroll:#scroll-target="onScroll" justify="center" class="secondHead primary">
+            <v-col cols="auto">
                 <div align="center" style="margin-top: 10rem">
                     <v-lazy
                         v-model="isActive"
@@ -45,7 +85,7 @@
                     </h4>
                 </div>
             </v-col>
-        </v-row>
+        </v-row> -->
     </div>
 </template>
 
@@ -93,14 +133,25 @@ export default class HomePage extends Vue {
         return charList;
     }
 
+    get changeOpacity(): number {
+        let number = this.scrollVariable - 200;
+        let percentage = number > 0 ? (number < 601 ? number / 600 : 1) : 0;
+        return percentage;
+    }
+
     onScroll(event: any) {
         this.scrollVariable = event.target.scrollTop;
         this.handleScroll(this.scrollVariable);
+        let el: any = document.querySelector('.section');
+        el.style.color = '-webkit-linear-gradient(blue, #333)';
     }
 }
 </script>
 
 <style scoped lang="scss">
+* {
+    font-family: Montserrat, sans-serif;
+}
 .masterhead {
     height: 100vh;
     // background-image: linear-gradient(
@@ -112,15 +163,20 @@ export default class HomePage extends Vue {
 }
 
 .secondHead {
-    height: 100rem;
+    height: 100vh;
 }
 
 h1 {
     font-size: 4em;
     font-weight: normal;
+    // background: -webkit-linear-gradient(#eee, #333);
+    // background-clip: text;
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
 }
 h4 {
     font-weight: normal;
+    font-family: Montserrat, sans-serif;
 }
 
 h2 {
