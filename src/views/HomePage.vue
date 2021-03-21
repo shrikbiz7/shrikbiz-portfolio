@@ -5,7 +5,9 @@
         class="overflow-y-auto"
     >
         <FirstLook />
-        <v-row v-scroll:#scroll-target="onScroll" justify="center" class="secondHead" style="width: 100%">
+
+        <!-- Title -->
+        <v-row v-scroll:#scroll-target="onScroll" justify="center" style="width: 100%">
             <v-col cols="auto" style="width: 100%">
                 <div align="center">
                     <h1
@@ -25,90 +27,115 @@
                 </div>
             </v-col>
         </v-row>
-        <v-row
-            v-scroll:#scroll-target="onScroll"
-            justify="center"
-            class="secondHead"
-            style="width: 100%; margin-bottom: 50vh"
-        >
+        <!-- Companies & JobTitle -->
+        <v-row v-scroll:#scroll-target="onScroll" justify="center" style="width: 100%; margin-bottom: 50vh">
             <v-col cols="auto" align="center" style="width: 50%">
-                <v-card width="400" :style="{ left: cardOneSlideIn + '%', right: 'auto', overflowX: 'hidden' }">
-                    <v-img height="200px" src="https://cdn.pixabay.com/photo/2020/07/12/07/47/bee-5396362_1280.jpg">
-                        <v-card-title class="white--text mt-8">
-                            <v-avatar size="56">
-                                <img
-                                    alt="user"
-                                    src="https://cdn.pixabay.com/photo/2020/06/24/19/12/cabbage-5337431_1280.jpg"
-                                />
-                            </v-avatar>
-                            <p class="ml-3">
-                                card 1
-                            </p>
-                        </v-card-title>
-                    </v-img>
+                <v-card
+                    width="500"
+                    class="work-card"
+                    :style="{ left: cardOneSlideIn + '%', right: 'auto', overflowX: 'hidden' }"
+                >
+                    <v-card-title class="mt-8">
+                        <strong class="ml-8">
+                            FrontEnd Software Engineer
+                        </strong>
+                        <v-img
+                            max-width="100px"
+                            src="@/assets/LumenLogo.png"
+                            :style="{
+                                position: 'absolute',
+                                left: 'auto',
+                                right: '10px',
+                                top: '50px',
+                            }"
+                        >
+                        </v-img>
+                    </v-card-title>
 
                     <v-card-text>
-                        <div class="font-weight-bold ml-8 mb-2">
-                            Card 1 Items
+                        <div class="font-weight-bold ml-8 mb-2" align="left">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione consequuntur perspiciatis
+                            at repudiandae architecto rerum similique rem velit minima. Voluptates ipsam id, laudantium
+                            molestias numquam doloribus accusamus ad quos odit!
                         </div>
-
-                        <v-timeline align-top dense>
-                            <v-timeline-item
-                                v-for="(message, index) in ['work with javascript', 'worked with typescript']"
-                                :key="index"
-                                small
-                            >
-                                <div>
-                                    <div class="font-weight-normal">
-                                        <strong>{{ index }}: </strong>
-                                        <span> {{ message }}</span>
-                                    </div>
-                                </div>
-                            </v-timeline-item>
-                        </v-timeline>
                     </v-card-text>
                 </v-card>
             </v-col>
             <v-col cols="auto" style="width: 50%">
-                <div style="position: relative; top: 20rem" align="center">
-                    <v-card width="400" :style="{ left: cardTwoSlideIn + '%', right: 'auto', overflowX: 'hidden' }">
-                        <v-img height="200px" src="https://cdn.pixabay.com/photo/2020/07/12/07/47/bee-5396362_1280.jpg">
-                            <v-card-title class="white--text mt-8">
-                                <v-avatar size="56">
-                                    <img
-                                        alt="user"
-                                        src="https://cdn.pixabay.com/photo/2020/06/24/19/12/cabbage-5337431_1280.jpg"
-                                    />
-                                </v-avatar>
-                                <p class="ml-3">
-                                    card 2
-                                </p>
-                            </v-card-title>
-                        </v-img>
+                <div style="position: relative; top: 12rem" align="center">
+                    <v-card
+                        class="work-card"
+                        width="500"
+                        :style="{ left: cardTwoSlideIn + '%', right: 'auto', overflowX: 'hidden' }"
+                    >
+                        <v-card-title class="mt-8">
+                            <strong class="ml-8">
+                                Software Specialist
+                            </strong>
+
+                            <v-img
+                                max-width="110px"
+                                src="@/assets/eCW.png"
+                                contain
+                                :style="{
+                                    position: 'absolute',
+                                    left: 'auto',
+                                    right: '10px',
+                                    top: '50px',
+                                    background: 'white',
+                                }"
+                            >
+                            </v-img>
+                        </v-card-title>
 
                         <v-card-text>
-                            <div class="font-weight-bold ml-8 mb-2">
-                                Card 2 Items
+                            <div class="font-weight-bold ml-8 mb-2" align="left">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione consequuntur
+                                perspiciatis at repudiandae architecto rerum similique rem velit minima. Voluptates
+                                ipsam id, laudantium molestias numquam doloribus accusamus ad quos odit!
                             </div>
-
-                            <v-timeline align-top dense>
-                                <v-timeline-item
-                                    v-for="(message, index) in ['work with javascript', 'worked with typescript']"
-                                    :key="index"
-                                    small
-                                >
-                                    <div>
-                                        <div class="font-weight-normal">
-                                            <strong>{{ index }}: </strong>
-                                            <span> {{ message }}</span>
-                                        </div>
-                                    </div>
-                                </v-timeline-item>
-                            </v-timeline>
                         </v-card-text>
                     </v-card>
                 </div>
             </v-col>
+            <v-col cols="auto" style="width: 50%">
+                <div style="position: relative; top: 12rem" align="center">
+                    <v-card
+                        class="work-card"
+                        width="500"
+                        :style="{ left: cardThreeSlideIn + '%', right: 'auto', overflowX: 'hidden' }"
+                    >
+                        <v-card-title class="mt-8">
+                            <strong class="ml-8">
+                                Software Developer (Intern)
+                            </strong>
+
+                            <v-img
+                                max-width="110px"
+                                src="@/assets/mazcon.png"
+                                contain
+                                :style="{
+                                    position: 'absolute',
+                                    left: 'auto',
+                                    right: '10px',
+                                    top: '50px',
+                                    background: 'white',
+                                }"
+                            >
+                            </v-img>
+                        </v-card-title>
+
+                        <v-card-text>
+                            <div class="font-weight-bold ml-8 mb-2" align="left">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione consequuntur
+                                perspiciatis at repudiandae architecto rerum similique rem velit minima. Voluptates
+                                ipsam id, laudantium molestias numquam doloribus accusamus ad quos odit!
+                            </div>
+                        </v-card-text>
+                    </v-card>
+                </div>
+            </v-col>
+            <v-col cols="auto" style="width: 50%"></v-col>
         </v-row>
         <!-- <v-row
             v-scroll:#scroll-target="onScroll"
@@ -260,26 +287,37 @@ export default class HomePage extends Vue {
     }
 
     get cardOneSlideIn(): number {
-        let lowerBound = 750;
-        let upperBound = lowerBound - 450;
+        let lowerBound = 500;
+        let upperBound = lowerBound - 350;
         let fraction =
             this.scrollVariable > upperBound
                 ? this.scrollVariable < lowerBound
                     ? (this.scrollVariable - upperBound) / (lowerBound - upperBound)
                     : 1
                 : 0;
-        return fraction * 100 - 100;
+        return fraction * 100 - 80;
+    }
+    get cardThreeSlideIn(): number {
+        let lowerBound = 900;
+        let upperBound = lowerBound - 350;
+        let fraction =
+            this.scrollVariable > upperBound
+                ? this.scrollVariable < lowerBound
+                    ? (this.scrollVariable - upperBound) / (lowerBound - upperBound)
+                    : 1
+                : 0;
+        return fraction * 100 - 80;
     }
     get cardTwoSlideIn(): number {
-        let lowerBound = 900;
-        let upperBound = lowerBound - 450;
+        let lowerBound = 650;
+        let upperBound = lowerBound - 350;
         let fraction =
             this.scrollVariable > upperBound
                 ? this.scrollVariable < lowerBound
                     ? (this.scrollVariable - upperBound) / (lowerBound - upperBound)
                     : 1
                 : 0;
-        return 100 - fraction * 100;
+        return 80 - fraction * 100;
     }
 
     get colorPicker() {
@@ -354,5 +392,9 @@ h4 {
 h2 {
     font-size: 1.7em;
     font-weight: normal;
+}
+.work-card:hover {
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 1) !important;
+    background: rgba(22, 22, 22, 0.651);
 }
 </style>

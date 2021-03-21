@@ -2,7 +2,7 @@
     <v-row v-scroll:#scroll-target="onScroll" justify="center" class="masterhead">
         <v-col cols="auto">
             <div style="width: 100%; height: 500px; overflow-y: hidden; overflow-x: hidden">
-                <v-img :height="imgHeight" style="margin: 10rem 0; overflow-x: hidden" src="@/assets/darkthemeWP.jpeg">
+                <v-img :height="imgHeight" style="margin: 10rem 0; overflow-x: hidden" src="@/assets/mountainWP.jpeg">
                     <div width="100%" style="color:white" align="center">
                         <h1
                             :style="{
@@ -108,14 +108,14 @@ export default class FirstLook extends vue {
 h1 {
     font-size: 4em;
     font-weight: normal;
-    background: -webkit-linear-gradient(#eee, #333);
+    background: -webkit-linear-gradient(#eee, rgb(86, 86, 86));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 h4 {
     font-weight: normal;
-    background: -webkit-linear-gradient(rgba(44, 38, 38, 0.726), rgba(233, 233, 233, 0.849));
+    background: -webkit-linear-gradient(rgba(89, 89, 89, 0.726), rgb(233, 233, 233));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
