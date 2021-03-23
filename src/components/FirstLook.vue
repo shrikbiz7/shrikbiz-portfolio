@@ -133,7 +133,6 @@ export default class FirstLook extends vue {
         if (this.char == this.titleName.length) {
             clearInterval(this.timer);
             this.timer = null;
-            span.style.transition = 'all 0.4s ease';
             this.char = 0;
             this.timer = setInterval(this.slowColorChange, 100);
             return;
@@ -220,7 +219,7 @@ h1 {
 }
 h4 {
     font-weight: normal;
-    background: -webkit-linear-gradient(rgb(233, 233, 233), rgba(129, 129, 129, 0.434), rgb(233, 233, 233));
+    background: -webkit-linear-gradient(rgb(233, 233, 233), rgba(241, 80, 247, 0.914), rgb(233, 233, 233));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
