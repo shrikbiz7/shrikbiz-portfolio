@@ -7,82 +7,48 @@
         <FirstLook />
 
         <!-- Title -->
-        <v-row v-scroll:#scroll-target="onScroll" justify="center" style="width: 100%">
-            <v-col cols="auto" style="width: 100%">
-                <div align="center">
-                    <h1
-                        class="section"
-                        :style="{
-                            width: '100%',
-                            fontFamily: 'Montserrat, sans-serif',
-                            overflowX: 'hidden',
-                            opacity: changeOpacity,
-                            backgroundImage: `linear-gradient(#${colorPicker}, #000)`,
-                            webkitBackgroundClip: 'text',
-                            color: 'transparent',
-                        }"
-                    >
-                        Work
-                    </h1>
-                </div>
-            </v-col>
-        </v-row>
-        <!-- Companies & JobTitle -->
-        <v-row v-scroll:#scroll-target="onScroll" justify="center" style="width: 100%; margin-bottom: 50vh">
-            <v-col cols="auto" align="center" style="width: 50%">
-                <v-card
-                    width="500"
-                    class="work-card"
-                    :style="{ left: cardOneSlideIn + '%', right: 'auto', overflowX: 'hidden' }"
-                >
-                    <v-card-title class="mt-8">
-                        <strong class="ml-8">
-                            FrontEnd Software Engineer
-                        </strong>
-                        <v-img
-                            max-width="100px"
-                            src="@/assets/LumenLogo.png"
+        <div
+            style="height: 150vh; background-image: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(130, 130, 130) 50%, rgb(18, 18, 18) 85%) !important;"
+        >
+            <v-row v-scroll:#scroll-target="onScroll" justify="center" style="width: 100%;">
+                <v-col cols="auto" style="width: 100%">
+                    <div align="center">
+                        <h1
                             :style="{
-                                position: 'absolute',
-                                left: 'auto',
-                                right: '10px',
-                                top: '50px',
+                                width: '100%',
+                                fontFamily: 'Montserrat, sans-serif',
+                                overflowX: 'hidden',
+                                opacity: changeOpacity,
+                                backgroundImage: `linear-gradient(#${colorPicker}, #000)`,
+                                webkitBackgroundClip: 'text',
+                                color: 'transparent',
                             }"
                         >
-                        </v-img>
-                    </v-card-title>
-
-                    <v-card-text>
-                        <div class="font-weight-bold ml-8 mb-2" align="left">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione consequuntur perspiciatis
-                            at repudiandae architecto rerum similique rem velit minima. Voluptates ipsam id, laudantium
-                            molestias numquam doloribus accusamus ad quos odit!
-                        </div>
-                    </v-card-text>
-                </v-card>
-            </v-col>
-            <v-col cols="auto" style="width: 50%">
-                <div style="position: relative; top: 12rem" align="center">
+                            Work
+                        </h1>
+                    </div>
+                </v-col>
+            </v-row>
+            <!-- Companies & JobTitle -->
+            <v-row v-scroll:#scroll-target="onScroll" justify="center" style="width: 100%; margin-bottom: 50vh">
+                <v-col cols="auto" align="center" style="width: 50%">
                     <v-card
-                        class="work-card"
                         width="500"
-                        :style="{ left: cardTwoSlideIn + '%', right: 'auto', overflowX: 'hidden' }"
+                        class="work-card"
+                        :style="{ left: cardOneSlideIn + '%', right: 'auto', overflowX: 'hidden' }"
                     >
                         <v-card-title class="mt-8">
                             <strong class="ml-8">
-                                Software Specialist
+                                FrontEnd Software Engineer
                             </strong>
-
                             <v-img
-                                max-width="110px"
-                                src="@/assets/eCW.png"
-                                contain
+                                max-width="100px"
+                                src="@/assets/LumenLogo.png"
                                 :style="{
                                     position: 'absolute',
                                     left: 'auto',
                                     right: '10px',
                                     top: '50px',
-                                    background: 'white',
                                 }"
                             >
                             </v-img>
@@ -96,47 +62,84 @@
                             </div>
                         </v-card-text>
                     </v-card>
-                </div>
-            </v-col>
-            <v-col cols="auto" style="width: 50%">
-                <div style="position: relative; top: 12rem" align="center">
-                    <v-card
-                        class="work-card"
-                        width="500"
-                        :style="{ left: cardThreeSlideIn + '%', right: 'auto', overflowX: 'hidden' }"
-                    >
-                        <v-card-title class="mt-8">
-                            <strong class="ml-8">
-                                Software Developer (Intern)
-                            </strong>
+                </v-col>
+                <v-col cols="auto" style="width: 50%">
+                    <div style="position: relative; top: 12rem" align="center">
+                        <v-card
+                            class="work-card"
+                            width="500"
+                            :style="{ left: cardTwoSlideIn + '%', right: 'auto', overflowX: 'hidden' }"
+                        >
+                            <v-card-title class="mt-8">
+                                <strong class="ml-8">
+                                    Software Specialist
+                                </strong>
 
-                            <v-img
-                                max-width="110px"
-                                src="@/assets/mazcon.png"
-                                contain
-                                :style="{
-                                    position: 'absolute',
-                                    left: 'auto',
-                                    right: '10px',
-                                    top: '50px',
-                                    background: 'white',
-                                }"
-                            >
-                            </v-img>
-                        </v-card-title>
+                                <v-img
+                                    max-width="110px"
+                                    src="@/assets/eCW.png"
+                                    contain
+                                    :style="{
+                                        position: 'absolute',
+                                        left: 'auto',
+                                        right: '10px',
+                                        top: '50px',
+                                        background: 'white',
+                                    }"
+                                >
+                                </v-img>
+                            </v-card-title>
 
-                        <v-card-text>
-                            <div class="font-weight-bold ml-8 mb-2" align="left">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione consequuntur
-                                perspiciatis at repudiandae architecto rerum similique rem velit minima. Voluptates
-                                ipsam id, laudantium molestias numquam doloribus accusamus ad quos odit!
-                            </div>
-                        </v-card-text>
-                    </v-card>
-                </div>
-            </v-col>
-            <v-col cols="auto" style="width: 50%"></v-col>
-        </v-row>
+                            <v-card-text>
+                                <div class="font-weight-bold ml-8 mb-2" align="left">
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione consequuntur
+                                    perspiciatis at repudiandae architecto rerum similique rem velit minima. Voluptates
+                                    ipsam id, laudantium molestias numquam doloribus accusamus ad quos odit!
+                                </div>
+                            </v-card-text>
+                        </v-card>
+                    </div>
+                </v-col>
+                <v-col cols="auto" style="width: 50%">
+                    <div style="position: relative; top: 12rem" align="center">
+                        <v-card
+                            class="work-card"
+                            width="500"
+                            :style="{ left: cardThreeSlideIn + '%', right: 'auto', overflowX: 'hidden' }"
+                        >
+                            <v-card-title class="mt-8">
+                                <strong class="ml-8">
+                                    Software Developer (Intern)
+                                </strong>
+
+                                <v-img
+                                    max-width="110px"
+                                    src="@/assets/mazcon.png"
+                                    contain
+                                    :style="{
+                                        position: 'absolute',
+                                        left: 'auto',
+                                        right: '10px',
+                                        top: '50px',
+                                        background: 'white',
+                                    }"
+                                >
+                                </v-img>
+                            </v-card-title>
+
+                            <v-card-text>
+                                <div class="font-weight-bold ml-8 mb-2" align="left">
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione consequuntur
+                                    perspiciatis at repudiandae architecto rerum similique rem velit minima. Voluptates
+                                    ipsam id, laudantium molestias numquam doloribus accusamus ad quos odit!
+                                </div>
+                            </v-card-text>
+                        </v-card>
+                    </div>
+                </v-col>
+                <v-col cols="auto" style="width: 50%"></v-col>
+            </v-row>
+        </div>
         <!-- <v-row
             v-scroll:#scroll-target="onScroll"
             justify="center"
@@ -352,8 +355,6 @@ export default class HomePage extends Vue {
     onScroll(event: any) {
         this.scrollVariable = event.target.scrollTop;
         this.handleScroll(this.scrollVariable);
-        let el: any = document.querySelector('.section');
-        el.style.color = '-webkit-linear-gradient(blue, #333)';
     }
 }
 </script>
