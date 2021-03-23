@@ -291,20 +291,8 @@ export default class HomePage extends Vue {
                 : 0;
         return fraction;
     }
-
     get cardOneSlideIn(): number {
-        let lowerBound = 900;
-        let upperBound = lowerBound - 350;
-        let fraction =
-            this.scrollVariable > upperBound
-                ? this.scrollVariable < lowerBound
-                    ? (this.scrollVariable - upperBound) / (lowerBound - upperBound)
-                    : 1
-                : 0;
-        return fraction * 100 - 80;
-    }
-    get cardThreeSlideIn(): number {
-        let lowerBound = 1350;
+        let lowerBound = 700;
         let upperBound = lowerBound - 350;
         let fraction =
             this.scrollVariable > upperBound
@@ -315,7 +303,7 @@ export default class HomePage extends Vue {
         return fraction * 100 - 80;
     }
     get cardTwoSlideIn(): number {
-        let lowerBound = 1100;
+        let lowerBound = 860;
         let upperBound = lowerBound - 350;
         let fraction =
             this.scrollVariable > upperBound
@@ -325,7 +313,17 @@ export default class HomePage extends Vue {
                 : 0;
         return 80 - fraction * 100;
     }
-
+    get cardThreeSlideIn(): number {
+        let lowerBound = 1130;
+        let upperBound = lowerBound - 350;
+        let fraction =
+            this.scrollVariable > upperBound
+                ? this.scrollVariable < lowerBound
+                    ? (this.scrollVariable - upperBound) / (lowerBound - upperBound)
+                    : 1
+                : 0;
+        return fraction * 100 - 80;
+    }
     get colorPicker() {
         let upperBound = 200;
         let lowerBound = 700;
@@ -379,10 +377,6 @@ export default class HomePage extends Vue {
 h1 {
     font-size: 4em;
     font-weight: normal;
-    // background: -webkit-linear-gradient(#eee, #333);
-    // background-clip: text;
-    // -webkit-background-clip: text;
-    // -webkit-text-fill-color: transparent;
 }
 h4 {
     font-weight: normal;
@@ -396,16 +390,12 @@ h2 {
 .work-info {
     position: relative;
     height: 150vh;
-    background-image: linear-gradient(
-        0deg,
-        rgb(255, 255, 255) 0%,
-        rgba(109, 109, 109, 0.719) 50%,
-        rgb(18, 18, 18) 85%
-    ) !important;
+    background: #121212;
+    background: radial-gradient(circle at 100%, rgba(255, 71, 255, 0.527) 5%, #eee 35%, #121212 35%);
 }
 .work-container {
     position: relative;
-    top: 20rem;
+    top: 10rem;
 }
 
 .work-card:hover {
