@@ -52,7 +52,6 @@
                     for Instagram, and soon for YouTube.
                 </p>
             </v-container>
-            {{ titleSize }}
         </v-col>
     </v-row>
 </template>
