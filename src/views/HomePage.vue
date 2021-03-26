@@ -25,126 +25,58 @@
                     <v-col cols="auto" align="center" style="width: 50%">
                         <Card
                             :isDirectionLeft="true"
-                            :effectEnd="700"
+                            :effectEnd="900"
                             :difference="350"
                             :scrollVariable="scrollVariable"
                             :jobDetails="{
                                 jobTitle: 'FrontEnd Software Engineer',
                                 companyName: 'Lumen Technologies',
                                 description: tempDescription,
-                                logoLink: '@/assets/LumenLogo.png',
                             }"
-                        />
-                        <!-- <v-card
-                            width="600"
-                            class="work-card"
-                            :style="{ left: cardSlideFromLeft(700) + '%', right: 'auto', overflowX: 'hidden' }"
                         >
-                            <v-card-title class="mt-8">
-                                <strong class="ml-8" style="font-size: 2em">
-                                    Lumen Technologies
-                                </strong>
-                                <v-img
-                                    max-width="100px"
-                                    src="@/assets/LumenLogo.png"
-                                    :style="{
-                                        position: 'absolute',
-                                        left: 'auto',
-                                        right: '10px',
-                                        top: '50px',
-                                    }"
-                                >
-                                </v-img>
-                            </v-card-title>
-                            <v-card-title>
-                                <strong class="ml-8" style="color: grey">
-                                    FrontEnd Software Engineer
-                                </strong>
-                            </v-card-title>
-
-                            <v-card-text>
-                                <div class="font-weight-bold ml-8 mb-2" align="left">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione consequuntur
-                                    perspiciatis at repudiandae architecto rerum similique rem velit minima. Voluptates
-                                    ipsam id, laudantium molestias numquam doloribus accusamus ad quos odit!
-                                </div>
-                            </v-card-text>
-                        </v-card> -->
+                            <template v-slot:logo>
+                                <v-img contain src="@/assets/LumenLogo.png" class="company-logo"> </v-img>
+                            </template>
+                        </Card>
                     </v-col>
+                    <v-col cols="auto" style="width: 50%"> </v-col>
+                    <v-col cols="auto" style="width: 50%"> </v-col>
                     <v-col cols="auto" style="width: 50%">
-                        <div style="position: relative; top: 20rem" align="center">
-                            <v-card
-                                class="work-card"
-                                width="600"
-                                :style="{ left: cardSlideFromRight(860) + '%', right: 'auto', overflowX: 'hidden' }"
+                        <div align="center">
+                            <Card
+                                :isDirectionLeft="false"
+                                :effectEnd="1200"
+                                :difference="350"
+                                :scrollVariable="scrollVariable"
+                                :jobDetails="{
+                                    jobTitle: 'Software Specialist',
+                                    companyName: 'eClinicalWorks',
+                                    description: tempDescription,
+                                }"
                             >
-                                <v-card-title class="mt-8">
-                                    <strong class="ml-8">
-                                        Software Specialist
-                                    </strong>
-
-                                    <v-img
-                                        max-width="110px"
-                                        src="@/assets/eCW.png"
-                                        contain
-                                        :style="{
-                                            position: 'absolute',
-                                            left: 'auto',
-                                            right: '10px',
-                                            top: '50px',
-                                            background: 'white',
-                                        }"
-                                    >
-                                    </v-img>
-                                </v-card-title>
-
-                                <v-card-text>
-                                    <div class="font-weight-bold ml-8 mb-2" align="left">
-                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione consequuntur
-                                        perspiciatis at repudiandae architecto rerum similique rem velit minima.
-                                        Voluptates ipsam id, laudantium molestias numquam doloribus accusamus ad quos
-                                        odit!
-                                    </div>
-                                </v-card-text>
-                            </v-card>
+                                <template v-slot:logo>
+                                    <v-img contain src="@/assets/eCW.png" class="company-logo"> </v-img>
+                                </template>
+                            </Card>
                         </div>
                     </v-col>
                     <v-col cols="auto" style="width: 50%">
-                        <div style="position: relative; top: 18rem" align="center">
-                            <v-card
-                                class="work-card"
-                                width="600"
-                                :style="{ left: cardSlideFromLeft(1130) + '%', right: 'auto', overflowX: 'hidden' }"
+                        <div align="center">
+                            <Card
+                                :isDirectionLeft="true"
+                                :effectEnd="1500"
+                                :difference="350"
+                                :scrollVariable="scrollVariable"
+                                :jobDetails="{
+                                    jobTitle: 'Software Developer (Intern)',
+                                    companyName: 'Mazcon InfoTech',
+                                    description: tempDescription,
+                                }"
                             >
-                                <v-card-title class="mt-8">
-                                    <strong class="ml-8">
-                                        Software Developer (Intern)
-                                    </strong>
-
-                                    <v-img
-                                        max-width="110px"
-                                        src="@/assets/mazcon.png"
-                                        contain
-                                        :style="{
-                                            position: 'absolute',
-                                            left: 'auto',
-                                            right: '10px',
-                                            top: '50px',
-                                            background: 'white',
-                                        }"
-                                    >
-                                    </v-img>
-                                </v-card-title>
-
-                                <v-card-text>
-                                    <div class="font-weight-bold ml-8 mb-2" align="left">
-                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione consequuntur
-                                        perspiciatis at repudiandae architecto rerum similique rem velit minima.
-                                        Voluptates ipsam id, laudantium molestias numquam doloribus accusamus ad quos
-                                        odit!
-                                    </div>
-                                </v-card-text>
-                            </v-card>
+                                <template v-slot:logo>
+                                    <v-img contain src="@/assets/mazcon.png" class="company-logo"> </v-img>
+                                </template>
+                            </Card>
                         </div>
                     </v-col>
                     <v-col cols="auto" style="width: 50%"></v-col>
@@ -326,6 +258,13 @@ export default class HomePage extends Vue {
     //     rgb(88, 101, 224) 69%,
     //     rgb(57, 73, 171) 89%
     // ) !important;
+}
+
+.company-logo {
+    max-width: 100px;
+    position: absolute;
+    right: 10px;
+    left: auto;
 }
 
 h1 {

@@ -2,6 +2,7 @@
     <div align="center">
         <h1
             :style="{
+                transition: 'all 1s ease',
                 width: '100%',
                 fontFamily: 'Montserrat, sans-serif',
                 overflowX: 'hidden',
@@ -36,31 +37,35 @@ export default class TitleEffect extends Vue {
         return this.fraction(this.effectStart + 300, this.effectEnd);
     }
     get primaryColorEffect(): string {
-        let rgbArray = this.colorChange(this.primaryColorHex, 500, 150);
+        let rgbArray = this.colorChange(this.primaryColorHex, 600, 450);
         return `rgb(${rgbArray[0]},${rgbArray[1]},${rgbArray[2]})`;
     }
-    get secondColorEffect() {
-        let rgbArray = this.colorChange(this.secondaryColor);
-        return `rgb(${this.secondaryColor[0] - rgbArray[0]},${this.secondaryColor[1] - rgbArray[1]},${this
-            .secondaryColor[2] - rgbArray[2]})`;
+    get secondColorEffect(): string {
+        let number = Math.floor(this.fraction(this.effectStart + 350, this.effectEnd) * 256);
+        number = number < 255 ? number : 255;
+        let oneth = this.numberToHex(Math.floor(number / 16))?.toString();
+        let zeroth = this.numberToHex(number % 16)?.toString();
+        let hexValue = oneth?.concat(zeroth) + oneth?.concat(zeroth) + oneth?.concat(zeroth);
+        return `#${hexValue}`;
+        // let rgbArray = this.colorChange(this.secondaryColor);
+        // return `rgb(${this.secondaryColor[0] - rgbArray[0]},${this.secondaryColor[1] - rgbArray[1]},${this
+        //     .secondaryColor[2] - rgbArray[2]})`;
     }
 
-    updated() {
-        console.log(this.primaryColorEffect, this.secondColorEffect);
-    }
+    // updated() {
+    //     console.log(this.primaryColorEffect, this.secondColorEffect);
+    // }
 
     colorChange(colorArray: number[], addToStart: number = 0, addToEnd: number = 0): number[] {
         let firstLimit: number = colorArray[0];
         let secondLimit: number = colorArray[1];
         let thirdLimit: number = colorArray[2];
-        // let fraction = this.fraction(this.effectStart + 500, this.effectEnd + 150);
         let fraction = this.fraction(this.effectStart + addToStart, this.effectEnd + addToEnd);
         return [
             Math.floor(firstLimit * fraction),
             Math.floor(secondLimit * fraction),
             Math.floor(thirdLimit * fraction),
         ];
-        // return `rgb(${rbgArray[0]},${rbgArray[1]},${rbgArray[2]})`;
     }
 
     fraction(start: number, end: number): number {
