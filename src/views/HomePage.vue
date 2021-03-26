@@ -11,35 +11,26 @@
             <div class="work-container">
                 <v-row v-scroll:#scroll-target="onScroll" justify="center" style=" width: 100%; margin-bottom: 5rem">
                     <v-col cols="auto" style="width: 100%">
-                        <div align="center">
-                            <h1
-                                :style="{
-                                    transition: 'all ease 1s',
-                                    width: '100%',
-                                    fontFamily: 'Montserrat, sans-serif',
-                                    overflowX: 'hidden',
-                                    opacity: changeOpacity,
-                                    backgroundImage: `linear-gradient(#${colorPicker}, #000)`,
-                                    webkitBackgroundClip: 'text',
-                                    color: 'transparent',
-                                }"
-                            >
-                                Work
-                            </h1>
-                        </div>
+                        <TitleEffect
+                            :scrollVariable="scrollVariable"
+                            :title="'Work'"
+                            :effectEnd="600"
+                            :difference="500"
+                            :primaryColorHex="[221, 69, 255]"
+                        />
                     </v-col>
                 </v-row>
                 <!-- Companies & JobTitle -->
-                <v-row v-scroll:#scroll-target="onScroll" justify="center" style=" width: 100%; margin-bottom: 50vh">
+                <v-row justify="center" style=" width: 100%; margin-bottom: 50vh">
                     <v-col cols="auto" align="center" style="width: 50%">
                         <v-card
-                            width="500"
+                            width="600"
                             class="work-card"
-                            :style="{ left: cardOneSlideIn + '%', right: 'auto', overflowX: 'hidden' }"
+                            :style="{ left: cardSlideFromLeft(700) + '%', right: 'auto', overflowX: 'hidden' }"
                         >
                             <v-card-title class="mt-8">
-                                <strong class="ml-8">
-                                    FrontEnd Software Engineer
+                                <strong class="ml-8" style="font-size: 2em">
+                                    Lumen Technologies
                                 </strong>
                                 <v-img
                                     max-width="100px"
@@ -53,6 +44,11 @@
                                 >
                                 </v-img>
                             </v-card-title>
+                            <v-card-title>
+                                <strong class="ml-8" style="color: grey">
+                                    FrontEnd Software Engineer
+                                </strong>
+                            </v-card-title>
 
                             <v-card-text>
                                 <div class="font-weight-bold ml-8 mb-2" align="left">
@@ -64,11 +60,11 @@
                         </v-card>
                     </v-col>
                     <v-col cols="auto" style="width: 50%">
-                        <div style="position: relative; top: 12rem" align="center">
+                        <div style="position: relative; top: 20rem" align="center">
                             <v-card
                                 class="work-card"
-                                width="500"
-                                :style="{ left: cardTwoSlideIn + '%', right: 'auto', overflowX: 'hidden' }"
+                                width="600"
+                                :style="{ left: cardSlideFromRight(860) + '%', right: 'auto', overflowX: 'hidden' }"
                             >
                                 <v-card-title class="mt-8">
                                     <strong class="ml-8">
@@ -102,11 +98,11 @@
                         </div>
                     </v-col>
                     <v-col cols="auto" style="width: 50%">
-                        <div style="position: relative; top: 12rem" align="center">
+                        <div style="position: relative; top: 18rem" align="center">
                             <v-card
                                 class="work-card"
-                                width="500"
-                                :style="{ left: cardThreeSlideIn + '%', right: 'auto', overflowX: 'hidden' }"
+                                width="600"
+                                :style="{ left: cardSlideFromLeft(1130) + '%', right: 'auto', overflowX: 'hidden' }"
                             >
                                 <v-card-title class="mt-8">
                                     <strong class="ml-8">
@@ -239,39 +235,30 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Component, Emit, Watch, Prop } from 'vue-property-decorator';
-import { getModule } from 'vuex-module-decorators';
-import store from '@/store/store';
 import { Characters } from '@/constants/char';
 
 @Component({
     components: {
         Roller: () => import('vue-roller'),
         FirstLook: () => import('@/components/FirstLook.vue'),
+        TitleEffect: () => import('@/components/utils/TitleEffect.vue'),
     },
 })
 export default class HomePage extends Vue {
     @Prop() handleScrollVariable: any;
-    storeModule: any;
     isActive: boolean = false;
     scrollVariable: number = 0;
 
     @Emit('handleScrollVariable')
     handleScroll(variable: any) {}
 
-    async created() {
-        if (!this.storeModule) this.storeModule = getModule(store, this.$store);
-    }
-
+    //for title sliding in
     get titleSpeed(): number {
         let constant: number = 862;
         let number = constant - this.scrollVariable;
         return number > 0 ? number : 0;
     }
-    get subTitleSpeed(): number {
-        let constant: number = 862;
-        return this.scrollVariable > constant ? Math.pow(this.scrollVariable - constant, 1.2) : 0;
-    }
-
+    // for roller
     get charList(): string[] {
         let capsCharList = Characters.map(char => (char = char?.toUpperCase()));
         let specialChar = ['.', '-'];
@@ -279,78 +266,28 @@ export default class HomePage extends Vue {
         charList.push(...Characters, ...capsCharList, ...specialChar, ' ');
         return charList;
     }
+    cardSlideFromLeft(upperLimit: number): number {
+        // let lowerBound = 750;
 
-    get changeOpacity(): number {
-        let upperBound = 200;
-        let lowerBound = 700;
+        let lowerLimit = upperLimit - 350;
         let fraction =
-            this.scrollVariable > upperBound
-                ? this.scrollVariable < lowerBound
-                    ? (this.scrollVariable - upperBound) / (lowerBound - upperBound)
-                    : 1
-                : 0;
-        return fraction;
-    }
-    get cardOneSlideIn(): number {
-        let lowerBound = 700;
-        let upperBound = lowerBound - 350;
-        let fraction =
-            this.scrollVariable > upperBound
-                ? this.scrollVariable < lowerBound
-                    ? (this.scrollVariable - upperBound) / (lowerBound - upperBound)
+            this.scrollVariable > lowerLimit
+                ? this.scrollVariable < upperLimit
+                    ? (this.scrollVariable - lowerLimit) / (upperLimit - lowerLimit)
                     : 1
                 : 0;
         return fraction * 100 - 80;
     }
-    get cardTwoSlideIn(): number {
-        let lowerBound = 860;
-        let upperBound = lowerBound - 350;
+    cardSlideFromRight(upperLimit: number): number {
+        // let upperLimit = 860;
+        let lowerLimit = upperLimit - 350;
         let fraction =
-            this.scrollVariable > upperBound
-                ? this.scrollVariable < lowerBound
-                    ? (this.scrollVariable - upperBound) / (lowerBound - upperBound)
+            this.scrollVariable > lowerLimit
+                ? this.scrollVariable < upperLimit
+                    ? (this.scrollVariable - lowerLimit) / (upperLimit - lowerLimit)
                     : 1
                 : 0;
         return 80 - fraction * 100;
-    }
-    get cardThreeSlideIn(): number {
-        let lowerBound = 1130;
-        let upperBound = lowerBound - 350;
-        let fraction =
-            this.scrollVariable > upperBound
-                ? this.scrollVariable < lowerBound
-                    ? (this.scrollVariable - upperBound) / (lowerBound - upperBound)
-                    : 1
-                : 0;
-        return fraction * 100 - 80;
-    }
-    get colorPicker() {
-        let upperBound = 200;
-        let lowerBound = 700;
-        let fractionNumber =
-            this.scrollVariable < lowerBound
-                ? this.scrollVariable > upperBound
-                    ? (this.scrollVariable - upperBound) / lowerBound
-                    : 0
-                : 1;
-        let number = Math.floor(fractionNumber * 256);
-        number = number < 255 ? number : 255;
-        let oneth = this.numberToHex(Math.floor(number / 16))?.toString();
-        let zeroth = this.numberToHex(number % 16)?.toString();
-        let hexValue = oneth?.concat(zeroth) + oneth?.concat(zeroth) + oneth?.concat(zeroth);
-        return hexValue;
-    }
-
-    numberToHex(num: number) {
-        let hex: any = new Map([
-            [10, 'a'],
-            [11, 'b'],
-            [12, 'c'],
-            [13, 'd'],
-            [14, 'e'],
-            [15, 'f'],
-        ]);
-        return hex.has(num) ? hex.get(num) : num;
     }
 
     onScroll(event: any) {
@@ -375,7 +312,7 @@ export default class HomePage extends Vue {
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 5em;
     font-weight: normal;
 }
 h4 {

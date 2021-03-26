@@ -5,7 +5,7 @@
                 <!-- <v-img :height="imgHeight" style="margin: 10rem 0; overflow-x: hidden" src="@/assets/mountainWP.jpeg"> -->
                 <!-- </v-img> -->
 
-                <div width="100%" style="margin: 10rem 0" align="center">
+                <div width="100%" style="margin: 15rem 0" align="center">
                     <h1
                         :style="{
                             marginTop: '50px',
@@ -81,24 +81,6 @@ export default class FirstLook extends vue {
     }
     get titleSize(): number {
         return this.scrollVariable < 800 ? this.scrollVariable / 45 + 50 : 60;
-    }
-    get titleSpacing(): number {
-        let number: number = this.scrollVariable / 40;
-        return number;
-    }
-    get titleSpeed(): number {
-        let constant: number = 860;
-        return this.scrollVariable > constant ? Math.pow(this.scrollVariable - constant, 1.35) : 0;
-    }
-    get subTitleSpeed(): number {
-        let constant: number = 860;
-        return this.scrollVariable > constant ? Math.pow(this.scrollVariable - constant, 1.2) : 0;
-    }
-    get subTitleSize(): number {
-        let number: number = this.scrollVariable / 50;
-        let constant = 50;
-        constant -= number;
-        return constant;
     }
 
     created() {
@@ -189,6 +171,25 @@ export default class FirstLook extends vue {
         this.timer = setInterval(this.onTick, 100);
         this.onTick();
     }
+
+    // get titleSpacing(): number {
+    //     let number: number = this.scrollVariable / 40;
+    //     return number;
+    // }
+    // get titleSpeed(): number {
+    //     let constant: number = 860;
+    //     return this.scrollVariable > constant ? Math.pow(this.scrollVariable - constant, 1.35) : 0;
+    // }
+    // get subTitleSpeed(): number {
+    //     let constant: number = 860;
+    //     return this.scrollVariable > constant ? Math.pow(this.scrollVariable - constant, 1.2) : 0;
+    // }
+    // get subTitleSize(): number {
+    //     let number: number = this.scrollVariable / 50;
+    //     let constant = 50;
+    //     constant -= number;
+    //     return constant;
+    // }
 }
 </script>
 <style lang="scss" scoped>
@@ -212,14 +213,10 @@ span.fade {
 h1 {
     font-size: 4em;
     font-weight: normal;
-    // background: -webkit-linear-gradient(#eee, rgb(86, 86, 86));
-    // background-clip: text;
-    // -webkit-background-clip: text;
-    // -webkit-text-fill-color: transparent;
 }
 h4 {
     font-weight: normal;
-    background: -webkit-linear-gradient(rgb(233, 233, 233), rgba(241, 80, 247, 0.914), rgb(233, 233, 233));
+    background: -webkit-linear-gradient(135deg, rgb(255, 255, 255), rgba(143, 142, 142, 0.996), rgb(255, 254, 254));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
