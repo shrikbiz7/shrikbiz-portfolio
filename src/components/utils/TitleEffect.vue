@@ -6,7 +6,7 @@
                 fontFamily: 'Montserrat, sans-serif',
                 overflowX: 'hidden',
                 opacity: changeOpacity,
-                backgroundImage: `linear-gradient(#${colorChange}, rgb(${primaryColorEffect[0]},${primaryColorEffect[1]},${primaryColorEffect[2]}))`,
+                backgroundImage: `linear-gradient(${secondColorEffect} , ${primaryColorEffect})`,
                 webkitBackgroundClip: 'text',
                 color: 'transparent',
             }"
@@ -27,13 +27,40 @@ export default class TitleEffect extends Vue {
     @Prop() effectEnd!: any;
     @Prop() difference?: any;
     @Prop() primaryColorHex!: any;
+    secondaryColor: number[] = [255, 255, 255];
 
     get effectStart(): number {
         return this.effectEnd - (this.difference ? this.difference : 500);
     }
-
     get changeOpacity(): number {
         return this.fraction(this.effectStart + 300, this.effectEnd);
+    }
+    get primaryColorEffect(): string {
+        let rgbArray = this.colorChange(this.primaryColorHex, 500, 150);
+        return `rgb(${rgbArray[0]},${rgbArray[1]},${rgbArray[2]})`;
+    }
+    get secondColorEffect() {
+        let rgbArray = this.colorChange(this.secondaryColor);
+        return `rgb(${this.secondaryColor[0] - rgbArray[0]},${this.secondaryColor[1] - rgbArray[1]},${this
+            .secondaryColor[2] - rgbArray[2]})`;
+    }
+
+    updated() {
+        console.log(this.primaryColorEffect, this.secondColorEffect);
+    }
+
+    colorChange(colorArray: number[], addToStart: number = 0, addToEnd: number = 0): number[] {
+        let firstLimit: number = colorArray[0];
+        let secondLimit: number = colorArray[1];
+        let thirdLimit: number = colorArray[2];
+        // let fraction = this.fraction(this.effectStart + 500, this.effectEnd + 150);
+        let fraction = this.fraction(this.effectStart + addToStart, this.effectEnd + addToEnd);
+        return [
+            Math.floor(firstLimit * fraction),
+            Math.floor(secondLimit * fraction),
+            Math.floor(thirdLimit * fraction),
+        ];
+        // return `rgb(${rbgArray[0]},${rbgArray[1]},${rbgArray[2]})`;
     }
 
     fraction(start: number, end: number): number {
@@ -41,27 +68,6 @@ export default class TitleEffect extends Vue {
             this.scrollVariable >= start ? (this.scrollVariable < end ? this.scrollVariable - start : end - start) : 0;
         let denominator: number = end - start;
         return numerator / denominator;
-    }
-
-    get colorChange() {
-        let number = Math.floor(this.fraction(this.effectStart + 350, this.effectEnd) * 256);
-        number = number < 255 ? number : 255;
-        let oneth = this.numberToHex(Math.floor(number / 16))?.toString();
-        let zeroth = this.numberToHex(number % 16)?.toString();
-        let hexValue = oneth?.concat(zeroth) + oneth?.concat(zeroth) + oneth?.concat(zeroth);
-        return hexValue;
-    }
-
-    get primaryColorEffect(): number[] {
-        let firstLimit: number = this.primaryColorHex[0];
-        let secondLimit: number = this.primaryColorHex[1];
-        let thirdLimit: number = this.primaryColorHex[2];
-        let fraction = this.fraction(this.effectStart + 500, this.effectEnd + 150);
-        return [
-            Math.floor(firstLimit * fraction),
-            Math.floor(secondLimit * fraction),
-            Math.floor(thirdLimit * fraction),
-        ];
     }
 
     //color picker helper

@@ -23,7 +23,19 @@
                 <!-- Companies & JobTitle -->
                 <v-row justify="center" style=" width: 100%; margin-bottom: 50vh">
                     <v-col cols="auto" align="center" style="width: 50%">
-                        <v-card
+                        <Card
+                            :isDirectionLeft="true"
+                            :effectEnd="700"
+                            :difference="350"
+                            :scrollVariable="scrollVariable"
+                            :jobDetails="{
+                                jobTitle: 'FrontEnd Software Engineer',
+                                companyName: 'Lumen Technologies',
+                                description: tempDescription,
+                                logoLink: '@/assets/LumenLogo.png',
+                            }"
+                        />
+                        <!-- <v-card
                             width="600"
                             class="work-card"
                             :style="{ left: cardSlideFromLeft(700) + '%', right: 'auto', overflowX: 'hidden' }"
@@ -57,7 +69,7 @@
                                     ipsam id, laudantium molestias numquam doloribus accusamus ad quos odit!
                                 </div>
                             </v-card-text>
-                        </v-card>
+                        </v-card> -->
                     </v-col>
                     <v-col cols="auto" style="width: 50%">
                         <div style="position: relative; top: 20rem" align="center">
@@ -242,12 +254,17 @@ import { Characters } from '@/constants/char';
         Roller: () => import('vue-roller'),
         FirstLook: () => import('@/components/FirstLook.vue'),
         TitleEffect: () => import('@/components/utils/TitleEffect.vue'),
+        Card: () => import('@/components/utils/Card.vue'),
     },
 })
 export default class HomePage extends Vue {
     @Prop() handleScrollVariable: any;
     isActive: boolean = false;
     scrollVariable: number = 0;
+    tempDescription: string = `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione consequuntur
+                                perspiciatis at repudiandae architecto rerum similique rem velit minima.
+                                Voluptates ipsam id, laudantium molestias numquam doloribus accusamus ad quos
+                                odit!`;
 
     @Emit('handleScrollVariable')
     handleScroll(variable: any) {}
