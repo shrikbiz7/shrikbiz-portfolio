@@ -2,28 +2,19 @@
     <v-card
         min-width="500"
         class="work-card"
-        :style="{ maxWidth: '600px', left: cardSlideEffect + '%', right: 'auto', overflowX: 'hidden' }"
+        :style="{ maxWidth: '600px', left: cardSlideEffect, overflowX: 'hidden' }"
     >
         <v-card-title class="mt-8">
             <strong class="ml-8" style="font-size: 2em">
                 {{ jobDetails.companyName }}
             </strong>
         </v-card-title>
+
         <v-card-title>
             <strong class="ml-8" style="color: grey">
                 {{ jobDetails.jobTitle }}
             </strong>
             <slot name="logo"></slot>
-            <!-- <v-img
-                contain
-                max-width="100px"
-                :src="'../../assets/LumenLogo.png'"
-                :style="{
-                    left: '10px',
-                    right: '10px',
-                }"
-            >
-            </v-img> -->
         </v-card-title>
 
         <v-card-text>
@@ -37,6 +28,13 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
+import { Fraction } from '@/helper/helperIndex';
+
+interface JobDetails {
+    jobTitle: string;
+    companyName: string;
+    description: string;
+}
 
 @Component
 export default class Card extends Vue {
@@ -44,33 +42,17 @@ export default class Card extends Vue {
     @Prop() effectEnd!: any;
     @Prop() difference!: any;
     @Prop() scrollVariable!: any;
-    @Prop() jobDetails!: any;
-    // @Prop() jobTitle!: any;
-    // @Prop() companyName!: any;
-    // @Prop() description!: any;
-    // @Prop() logoLink!: any;
-
-    mounted() {
-        console.log(this.jobDetails);
-    }
-
-    get logoLink() {
-        return this.jobDetails?.logoLink;
-    }
+    @Prop() jobDetails!: JobDetails;
 
     get effectStart(): number {
         return this.effectEnd - (this.difference ? this.difference : 500);
     }
-    get cardSlideEffect(): number {
-        let fraction = this.fraction(this.effectStart, this.effectEnd);
-        return this.isDirectionLeft ? fraction * 100 - 80 : 80 - fraction * 100;
-    }
-
-    fraction(start: number, end: number): number {
-        let numerator: number =
-            this.scrollVariable >= start ? (this.scrollVariable < end ? this.scrollVariable - start : end - start) : 0;
-        let denominator: number = end - start;
-        return numerator / denominator;
+    get cardSlideEffect(): string {
+        return (
+            (this.isDirectionLeft
+                ? (Fraction(this.effectStart, this.effectEnd, this.scrollVariable) - 1) * 120
+                : (1 - Fraction(this.effectStart, this.effectEnd, this.scrollVariable)) * 120) + '%'
+        );
     }
 }
 </script>

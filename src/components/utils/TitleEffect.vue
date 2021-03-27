@@ -2,15 +2,14 @@
     <div align="center">
         <h1
             :style="{
-                transition: 'all 1s ease',
-                width: '100%',
+                opacity: changeOpacity,
+                backgroundImage: `linear-gradient(${secondColorEffect} , ${primaryColorEffect} ${colorFraction}%)`,
                 fontFamily: 'Montserrat, sans-serif',
                 overflowX: 'hidden',
-                opacity: changeOpacity,
-                backgroundImage: `linear-gradient(${secondColorEffect} , ${primaryColorEffect})`,
                 webkitBackgroundClip: 'text',
                 color: 'transparent',
             }"
+            class="section-title"
         >
             {{ title }}
         </h1>
@@ -20,6 +19,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
+import { Fraction } from '@/helper/helperIndex';
 
 @Component
 export default class TitleEffect extends Vue {
@@ -34,14 +34,14 @@ export default class TitleEffect extends Vue {
         return this.effectEnd - (this.difference ? this.difference : 500);
     }
     get changeOpacity(): number {
-        return this.fraction(this.effectStart + 300, this.effectEnd);
+        return Fraction(this.effectStart + 300, this.effectEnd, this.scrollVariable);
     }
     get primaryColorEffect(): string {
         let rgbArray = this.colorChange(this.primaryColorHex, 600, 450);
         return `rgb(${rgbArray[0]},${rgbArray[1]},${rgbArray[2]})`;
     }
     get secondColorEffect(): string {
-        let number = Math.floor(this.fraction(this.effectStart + 350, this.effectEnd) * 256);
+        let number = Math.floor(Fraction(this.effectStart + 350, this.effectEnd, this.scrollVariable) * 256);
         number = number < 255 ? number : 255;
         let oneth = this.numberToHex(Math.floor(number / 16))?.toString();
         let zeroth = this.numberToHex(number % 16)?.toString();
@@ -52,27 +52,22 @@ export default class TitleEffect extends Vue {
         //     .secondaryColor[2] - rgbArray[2]})`;
     }
 
-    // updated() {
-    //     console.log(this.primaryColorEffect, this.secondColorEffect);
-    // }
+    get colorFraction() {
+        let fraction = 1 - Fraction(this.effectStart + 600, this.effectEnd + 450, this.scrollVariable);
+        let limit = 0;
+        return (fraction < limit ? limit : fraction) * 100;
+    }
 
     colorChange(colorArray: number[], addToStart: number = 0, addToEnd: number = 0): number[] {
         let firstLimit: number = colorArray[0];
         let secondLimit: number = colorArray[1];
         let thirdLimit: number = colorArray[2];
-        let fraction = this.fraction(this.effectStart + addToStart, this.effectEnd + addToEnd);
+        let fraction = Fraction(this.effectStart + addToStart, this.effectEnd + addToEnd, this.scrollVariable);
         return [
             Math.floor(firstLimit * fraction),
             Math.floor(secondLimit * fraction),
             Math.floor(thirdLimit * fraction),
         ];
-    }
-
-    fraction(start: number, end: number): number {
-        let numerator: number =
-            this.scrollVariable >= start ? (this.scrollVariable < end ? this.scrollVariable - start : end - start) : 0;
-        let denominator: number = end - start;
-        return numerator / denominator;
     }
 
     //color picker helper
@@ -94,22 +89,10 @@ export default class TitleEffect extends Vue {
 * {
     font-family: Montserrat, sans-serif;
 }
-.work-info {
-    position: relative;
-    height: 150vh;
-    background: #121212;
-    background: radial-gradient(circle at 100%, rgba(255, 71, 255, 0.527) 5%, #eee 35%, #121212 35%);
+.section-title {
+    transition: 'all 1s ease';
+    width: '100%';
 }
-.work-container {
-    position: relative;
-    top: 10rem;
-}
-
-.work-card:hover {
-    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 1) !important;
-    background: rgba(22, 22, 22, 0.651);
-}
-
 h1 {
     font-size: 5em;
     font-weight: normal;

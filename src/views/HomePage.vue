@@ -7,7 +7,23 @@
         <FirstLook />
 
         <!-- Title -->
-        <div class="work-info">
+        <div class="work-info" :style="{ background: radialEffect(0, 900) }">
+            <!-- <InfiniteScrollBar :barStyle="{ background: '#42b883', padding: '5px 0' }">
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+                <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+            </InfiniteScrollBar> -->
             <div class="work-container">
                 <v-row v-scroll:#scroll-target="onScroll" justify="center" style=" width: 100%; margin-bottom: 5rem">
                     <v-col cols="auto" style="width: 100%">
@@ -20,9 +36,8 @@
                         />
                     </v-col>
                 </v-row>
-                <!-- Companies & JobTitle -->
                 <v-row justify="center" style=" width: 100%; margin-bottom: 50vh">
-                    <v-col cols="auto" align="center" style="width: 50%">
+                    <v-col cols="auto" align="right" style="width: 50%">
                         <Card
                             :isDirectionLeft="true"
                             :effectEnd="900"
@@ -41,43 +56,39 @@
                     </v-col>
                     <v-col cols="auto" style="width: 50%"> </v-col>
                     <v-col cols="auto" style="width: 50%"> </v-col>
-                    <v-col cols="auto" style="width: 50%">
-                        <div align="center">
-                            <Card
-                                :isDirectionLeft="false"
-                                :effectEnd="1200"
-                                :difference="350"
-                                :scrollVariable="scrollVariable"
-                                :jobDetails="{
-                                    jobTitle: 'Software Specialist',
-                                    companyName: 'eClinicalWorks',
-                                    description: tempDescription,
-                                }"
-                            >
-                                <template v-slot:logo>
-                                    <v-img contain src="@/assets/eCW.png" class="company-logo"> </v-img>
-                                </template>
-                            </Card>
-                        </div>
+                    <v-col align="left" cols="auto" style="width: 50%">
+                        <Card
+                            :isDirectionLeft="false"
+                            :effectEnd="1200"
+                            :difference="350"
+                            :scrollVariable="scrollVariable"
+                            :jobDetails="{
+                                jobTitle: 'Software Specialist',
+                                companyName: 'eClinicalWorks',
+                                description: tempDescription,
+                            }"
+                        >
+                            <template v-slot:logo>
+                                <v-img contain src="@/assets/eCW.png" class="company-logo"> </v-img>
+                            </template>
+                        </Card>
                     </v-col>
-                    <v-col cols="auto" style="width: 50%">
-                        <div align="center">
-                            <Card
-                                :isDirectionLeft="true"
-                                :effectEnd="1500"
-                                :difference="350"
-                                :scrollVariable="scrollVariable"
-                                :jobDetails="{
-                                    jobTitle: 'Software Developer (Intern)',
-                                    companyName: 'Mazcon InfoTech',
-                                    description: tempDescription,
-                                }"
-                            >
-                                <template v-slot:logo>
-                                    <v-img contain src="@/assets/mazcon.png" class="company-logo"> </v-img>
-                                </template>
-                            </Card>
-                        </div>
+                    <v-col cols="auto" align="right" style="width: 50%">
+                        <Card
+                            :isDirectionLeft="true"
+                            :effectEnd="1500"
+                            :difference="350"
+                            :scrollVariable="scrollVariable"
+                            :jobDetails="{
+                                jobTitle: 'Software Developer (Intern)',
+                                companyName: 'Mazcon InfoTech',
+                                description: tempDescription,
+                            }"
+                        >
+                            <template v-slot:logo>
+                                <v-img contain src="@/assets/mazcon.png" class="company-logo"> </v-img>
+                            </template>
+                        </Card>
                     </v-col>
                     <v-col cols="auto" style="width: 50%"></v-col>
                 </v-row>
@@ -178,8 +189,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Component, Emit, Watch, Prop } from 'vue-property-decorator';
+import { Component, Emit, Prop } from 'vue-property-decorator';
 import { Characters } from '@/constants/char';
+import { Fraction } from '@/helper/helperIndex';
 
 @Component({
     components: {
@@ -187,6 +199,7 @@ import { Characters } from '@/constants/char';
         FirstLook: () => import('@/components/FirstLook.vue'),
         TitleEffect: () => import('@/components/utils/TitleEffect.vue'),
         Card: () => import('@/components/utils/Card.vue'),
+        InfiniteScrollBar: () => import('@/helper/InfiniteScroll.vue'),
     },
 })
 export default class HomePage extends Vue {
@@ -215,33 +228,15 @@ export default class HomePage extends Vue {
         charList.push(...Characters, ...capsCharList, ...specialChar, ' ');
         return charList;
     }
-    cardSlideFromLeft(upperLimit: number): number {
-        // let lowerBound = 750;
-
-        let lowerLimit = upperLimit - 350;
-        let fraction =
-            this.scrollVariable > lowerLimit
-                ? this.scrollVariable < upperLimit
-                    ? (this.scrollVariable - lowerLimit) / (upperLimit - lowerLimit)
-                    : 1
-                : 0;
-        return fraction * 100 - 80;
-    }
-    cardSlideFromRight(upperLimit: number): number {
-        // let upperLimit = 860;
-        let lowerLimit = upperLimit - 350;
-        let fraction =
-            this.scrollVariable > lowerLimit
-                ? this.scrollVariable < upperLimit
-                    ? (this.scrollVariable - lowerLimit) / (upperLimit - lowerLimit)
-                    : 1
-                : 0;
-        return 80 - fraction * 100;
-    }
-
     onScroll(event: any) {
         this.scrollVariable = event.target.scrollTop;
         this.handleScroll(this.scrollVariable);
+    }
+
+    radialEffect(start: number, end: number) {
+        let fraction = Fraction(start, end, this.scrollVariable);
+        return `radial-gradient(circle at ${200 -
+            fraction * 100}%, rgba(255, 71, 255, 0.527) 5%, #eee 35%, #121212 35%)`;
     }
 }
 </script>
@@ -249,15 +244,6 @@ export default class HomePage extends Vue {
 <style scoped lang="scss">
 * {
     font-family: Montserrat, sans-serif;
-}
-.masterhead {
-    height: 100vh;
-    // background-image: linear-gradient(
-    //     135deg,
-    //     rgb(38, 50, 56) 0%,
-    //     rgb(88, 101, 224) 69%,
-    //     rgb(57, 73, 171) 89%
-    // ) !important;
 }
 
 .company-logo {
@@ -284,15 +270,15 @@ h2 {
     position: relative;
     height: 150vh;
     background: #121212;
-    background: radial-gradient(circle at 100%, rgba(255, 71, 255, 0.527) 5%, #eee 35%, #121212 35%);
+    // background: radial-gradient(circle at 100%, rgba(255, 71, 255, 0.527) 5%, #eee 35%, #121212 35%);
 }
 .work-container {
     position: relative;
-    top: 10rem;
+    top: 0rem;
 }
 
 .work-card:hover {
-    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 1) !important;
-    background: rgba(22, 22, 22, 0.651);
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.692) !important;
+    background: rgba(22, 22, 22, 0.884);
 }
 </style>
