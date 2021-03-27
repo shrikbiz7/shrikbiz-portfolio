@@ -1,24 +1,25 @@
 <template>
     <v-row v-scroll:#scroll-target="onScroll" justify="center" class="masterhead">
         <v-col cols="auto">
-            <div style="width: 100%; height: 350px; overflow-y: hidden; overflow-x: hidden">
+            <div style="width: 100%; height: 300px; overflow-y: hidden; overflow-x: hidden">
                 <div width="100%" align="center" style="margin-top: 5rem">
-                    <v-img :height="imgHeight" style="margin-bottom: 5rem; overflow-x: hidden" src="@/assets/code.jpeg">
-                        <h1
-                            :style="{
-                                marginTop: '50px',
-                                fontFamily: 'Montserrat, sans-serif',
-                                width: '100%',
-                                overflowX: 'hidden',
-                                fontSize: titleSize + 'px',
-                            }"
-                            class="animTitle"
-                        >
-                            <span class="title-letter" v-for="(letter, index) in titleName" :key="index">
-                                {{ letter }}
-                            </span>
-                        </h1>
-                    </v-img>
+                    <!-- <v-img :height="imgHeight" style="margin-bottom: 5rem; overflow-x: hidden" src="@/assets/code.jpeg"> -->
+                    <h1
+                        :style="{
+                            marginTop: '50px',
+                            fontFamily: 'Montserrat, sans-serif',
+                            width: '100%',
+                            overflowX: 'hidden',
+                            fontSize: titleSize + 'px',
+                            transition: 'all 0.1s ease-out',
+                        }"
+                        class="animTitle"
+                    >
+                        <span class="title-letter color-transition" v-for="(letter, index) in titleName" :key="index">
+                            {{ letter }}
+                        </span>
+                    </h1>
+                    <!-- </v-img> -->
                 </div>
             </div>
             <v-row style="max-width: 100%" class="sub-title-container" align="center" justify="center">
@@ -31,15 +32,13 @@
                     <span class="sub-titles-divider">|</span>
                 </v-col>
             </v-row>
-            <v-container>
-                <p style="text-align: center; font-size: 30px" justify="center">
-                    Hi, I am Shrikant Patel from Denver, Colorado with ~3 years of experience as FrontEnd Software
-                    Engineer. Event though first framework that I learned was Angular, I generally work on Vue and
-                    React. When I am not programming, I like to go for hiking, cooking, or watch few Real Madrid or
-                    Juventus games. I have currently started to create content on FrontEnd Development related topics
-                    for Instagram, and soon for YouTube.
-                </p>
-            </v-container>
+            <p style="text-align: center; font-size: 30px; margin: auto 5%" justify="center">
+                Hi, I am Shrikant Patel from Denver, Colorado with ~3 years of experience as FrontEnd Software Engineer.
+                Event though first framework that I learned was Angular, I generally work on Vue and React. When I am
+                not programming, I like to go for hiking, cooking, or watch few Real Madrid or Juventus games. I have
+                currently started to create content on FrontEnd Development related topics for Instagram, and soon for
+                YouTube.
+            </p>
         </v-col>
     </v-row>
 </template>
@@ -248,8 +247,12 @@ export default class FirstLook extends vue {
 //
 .title-letter {
     opacity: 0;
-    transition: all ease 1s;
+    transition-property: opacity, color;
+    transition-duration: 1s;
 }
+// .color-transition {
+//     transition: color ease-out 1s;
+// }
 .title-letter.fade {
     opacity: 1;
 }
