@@ -176,6 +176,7 @@ export default class FirstLook extends vue {
 
 .sub-title-container {
     max-width: 100%;
+    // height: 100%;
 }
 
 .sub-titles {
@@ -192,12 +193,14 @@ export default class FirstLook extends vue {
     height: 15px;
     opacity: 0.7;
     background: var(--lineColor);
-    bottom: 30px;
+    //how bottom the underline will be
+    bottom: 15px;
     transition: all 0.2s ease-out;
 }
 
 .sub-titles:hover:before {
-    transform: translateY(10px);
+    //how down side the underline will slide
+    transform: translateY(15px);
 }
 
 .each-sub-titles {
@@ -212,9 +215,10 @@ export default class FirstLook extends vue {
     background-repeat: no-repeat;
     transition: all 0.2s ease-out;
     white-space: nowrap;
+    margin-bottom: 0 !important;
 }
 .each-sub-titles:hover {
-    background-position: 0 11px;
+    background-position: 0 15px;
 }
 
 .sub-titles-divider {
