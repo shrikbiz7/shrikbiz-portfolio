@@ -15,13 +15,18 @@
                 </h1>
             </div>
             <v-row class="sub-title-container" align="center" justify="center">
-                <v-col cols="auto" style="display: flex" v-for="(iAm, index) in iAmList" :key="index">
+                <v-col
+                    cols="auto"
+                    style="display: flex; padding: 0px 20px !important"
+                    v-for="(iAm, index) in iAmList"
+                    :key="index"
+                >
                     <span class="sub-titles">
                         <p class="each-sub-titles">
                             {{ iAm }}
                         </p>
                     </span>
-                    <span class="sub-titles-divider">|</span>
+                    <span v-if="index !== iAmList.length - 1" class="sub-titles-divider">|</span>
                 </v-col>
             </v-row>
             <p class="about-me" justify="center">
@@ -224,7 +229,7 @@ export default class FirstLook extends vue {
 .sub-titles-divider {
     position: relative;
     display: inline-block;
-    font-size: 35px;
+    font-size: 40px;
     left: 15px;
     right: 15px;
 }
@@ -242,8 +247,8 @@ export default class FirstLook extends vue {
 
 .about-me {
     text-align: center;
-    font-size: 30px;
-    margin: 5% 5%;
+    font-size: 20px;
+    margin: 3% 5%;
 }
 
 h1 {

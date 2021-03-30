@@ -3,7 +3,7 @@
     <!-- max-height: calc(100vh - 56.8px) -->
     <div
         id="scroll-target"
-        style="max-height: 100vh; width: 100%; height: auto; overflow-x: hidden"
+        style="max-height: calc(100vh - 56.8px); width: 100%; height: auto; overflow-x: hidden"
         class="overflow-y-auto"
         v-scroll:#scroll-target="onScroll"
     >

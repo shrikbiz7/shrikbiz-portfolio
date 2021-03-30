@@ -1,22 +1,23 @@
 <template>
-    <div class="work-info" :style="{ background: radialEffect(0, 900) }">
+    <div class="work-info" :style="{ background: radialEffect(1300, 2400) }">
         <div class="work-container">
             <v-row v-scroll:#scroll-target="onScroll" justify="center" class="title-row">
                 <v-col cols="auto">
                     <TitleEffect
                         :scrollVariable="scrollVariable"
                         :title="'Project'"
-                        :effectEnd="600"
+                        :effectEnd="1800"
                         :difference="500"
                         :primaryColorHex="color.hex"
                     />
                 </v-col>
             </v-row>
             <v-row justify="center">
-                <v-col cols="auto" align="right" class="card-col">
+                <v-col cols="auto" class="card-col"> </v-col>
+                <v-col cols="auto" align="left" class="card-col">
                     <Card
-                        :isDirectionLeft="true"
-                        :effectEnd="900"
+                        :isDirectionLeft="false"
+                        :effectEnd="2100"
                         :difference="350"
                         :scrollVariable="scrollVariable"
                         :jobDetails="{
@@ -30,12 +31,10 @@
                         </template>
                     </Card>
                 </v-col>
-                <v-col cols="auto" class="card-col"> </v-col>
-                <v-col cols="auto" class="card-col"> </v-col>
-                <v-col align="left" class="card-col" cols="auto">
+                <v-col align="right" class="card-col" cols="auto">
                     <Card
-                        :isDirectionLeft="false"
-                        :effectEnd="1200"
+                        :isDirectionLeft="true"
+                        :effectEnd="2250"
                         :difference="350"
                         :scrollVariable="scrollVariable"
                         :jobDetails="{
@@ -49,10 +48,12 @@
                         </template>
                     </Card>
                 </v-col>
-                <v-col cols="auto" align="right" class="card-col">
+                <v-col cols="auto" class="card-col"> </v-col>
+                <v-col cols="auto" class="card-col"></v-col>
+                <v-col cols="auto" align="left" class="card-col">
                     <Card
-                        :isDirectionLeft="true"
-                        :effectEnd="1500"
+                        :isDirectionLeft="false"
+                        :effectEnd="2600"
                         :difference="350"
                         :scrollVariable="scrollVariable"
                         :jobDetails="{
@@ -66,7 +67,6 @@
                         </template>
                     </Card>
                 </v-col>
-                <v-col cols="auto" class="card-col"></v-col>
             </v-row>
         </div>
     </div>
@@ -99,8 +99,7 @@ export default class ProjectLook extends Vue {
     radialEffect(start: number, end: number) {
         let fraction = Fraction(start, end, this.scrollVariable);
         let hex = this.color.hex;
-        console.log(`🚀 -> ProjectLook -> radialEffect -> fraction * 100`, fraction * 100);
-        return `radial-gradient(circle at ${100 - fraction * 100}%, rgba(${hex}, 0.527) 5%, #eee 35%, #121212 35%)`;
+        return `radial-gradient(circle at ${fraction * 100 - 100}%, rgba(${hex}, 0.527) 5%, #eee 35%, #121212 35%)`;
     }
 }
 </script>
