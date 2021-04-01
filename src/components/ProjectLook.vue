@@ -5,7 +5,7 @@
                 <v-col cols="auto">
                     <TitleEffect
                         :scrollVariable="scrollVariable"
-                        :title="'Project'"
+                        :title="'Projects'"
                         :effectEnd="1800"
                         :difference="500"
                         :primaryColorHex="color.hex"
@@ -13,6 +13,7 @@
                 </v-col>
             </v-row>
             <v-row justify="center">
+                <!-- row 1 -->
                 <v-col cols="auto" class="card-col"> </v-col>
                 <v-col cols="auto" align="left" class="card-col">
                     <Card
@@ -21,8 +22,8 @@
                         :difference="350"
                         :scrollVariable="scrollVariable"
                         :jobDetails="{
-                            jobTitle: 'FrontEnd Software Engineer',
-                            companyName: 'Lumen Technologies',
+                            companyName: 'Revent App',
+                            jobTitle: 'Side Project',
                             description: tempDescription,
                         }"
                     >
@@ -31,6 +32,7 @@
                         </template>
                     </Card>
                 </v-col>
+                <!-- row 2 -->
                 <v-col align="right" class="card-col" cols="auto">
                     <Card
                         :isDirectionLeft="true"
@@ -38,8 +40,8 @@
                         :difference="350"
                         :scrollVariable="scrollVariable"
                         :jobDetails="{
-                            jobTitle: 'Software Specialist',
-                            companyName: 'eClinicalWorks',
+                            companyName: 'Organic Bar',
+                            jobTitle: 'Side Project',
                             description: tempDescription,
                         }"
                     >
@@ -49,6 +51,7 @@
                     </Card>
                 </v-col>
                 <v-col cols="auto" class="card-col"> </v-col>
+                <!-- row 3 -->
                 <v-col cols="auto" class="card-col"></v-col>
                 <v-col cols="auto" align="left" class="card-col">
                     <Card
@@ -57,8 +60,46 @@
                         :difference="350"
                         :scrollVariable="scrollVariable"
                         :jobDetails="{
-                            jobTitle: 'Software Developer (Intern)',
-                            companyName: 'Mazcon InfoTech',
+                            companyName: 'Mass. Audubon Society',
+                            jobTitle: 'Clark University',
+                            description: tempDescription,
+                        }"
+                    >
+                        <template v-slot:logo>
+                            <v-img contain src="@/assets/mazcon.png" class="company-logo"> </v-img>
+                        </template>
+                    </Card>
+                </v-col>
+                <!-- row 4 -->
+                <v-col cols="auto" align="right" class="card-col">
+                    <Card
+                        :isDirectionLeft="true"
+                        :effectEnd="2950"
+                        :difference="350"
+                        :scrollVariable="scrollVariable"
+                        :jobDetails="{
+                            companyName: 'Mass. Audubon Society',
+                            jobTitle: 'Clark University',
+                            description: tempDescription,
+                        }"
+                    >
+                        <template v-slot:logo>
+                            <v-img contain src="@/assets/mazcon.png" class="company-logo"> </v-img>
+                        </template>
+                    </Card>
+                </v-col>
+                <v-col cols="auto" class="card-col"></v-col>
+                <!-- row 5 -->
+                <v-col cols="auto" class="card-col"></v-col>
+                <v-col cols="auto" align="left" class="card-col">
+                    <Card
+                        :isDirectionLeft="false"
+                        :effectEnd="3250"
+                        :difference="350"
+                        :scrollVariable="scrollVariable"
+                        :jobDetails="{
+                            companyName: 'Hotel Booking',
+                            jobTitle: 'Gujarat Technological University',
                             description: tempDescription,
                         }"
                     >
@@ -118,7 +159,7 @@ export default class ProjectLook extends Vue {
 
 .work-info {
     position: relative;
-    height: 150vh;
+    height: 200vh;
     background: #121212;
 }
 .work-container {

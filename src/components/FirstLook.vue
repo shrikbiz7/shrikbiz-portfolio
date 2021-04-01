@@ -29,13 +29,18 @@
                     <span v-if="index !== iAmList.length - 1" class="sub-titles-divider">|</span>
                 </v-col>
             </v-row>
-            <p class="about-me" justify="center">
+            <!-- <p class="about-me" justify="center">
                 Hi, I am Shrikant Patel from Denver, Colorado with ~3 years of experience as FrontEnd Software Engineer.
-                Event though first framework that I learned was Angular, I generally work on Vue and React. When I am
-                not programming, I like to go for hiking, cooking, or watch few Real Madrid or Juventus games. I have
-                currently started to create content on FrontEnd Development related topics for Instagram, and soon for
+                Event though first framework that I learned was Angular, I generally work on Vue & React. When I am not
+                programming, I like to go for hiking, cooking, or watch few Real Madrid or Juventus games. I have
+                currently started to create content on FrontEnd Development related topics for Instagram, & soon for
                 YouTube.
-            </p>
+            </p> -->
+            <div align="center" justify="center">
+                <v-icon class="slide-down">
+                    mdi-chevron-triple-down
+                </v-icon>
+            </div>
         </v-col>
     </v-row>
 </template>
@@ -62,7 +67,7 @@ export default class FirstLook extends vue {
     iAmList: string[] = [
         'Web Designer',
         'Software Developer',
-        'Algorithm Enthusiastic',
+        'Algorithm Enthusiast',
         'rookie Content Creator',
         'Former Soccer Player',
         'Painter',
@@ -148,11 +153,11 @@ export default class FirstLook extends vue {
             span.style.webkitBackgroundClip = 'text';
             span.style.color = 'transparent';
         }
-        if (++this.animTime === 1000) {
-            clearInterval(this.timer);
-            this.timer = null;
-            return;
-        }
+        // if (++this.animTime === 1000) {
+        //     clearInterval(this.timer);
+        //     this.timer = null;
+        //     return;
+        // }
         if (++this.char > this.titleName.length - 1) {
             this.colorIndex = ++this.colorIndex % (this.colorList.length * 2);
             this.char = 0;
@@ -172,9 +177,10 @@ export default class FirstLook extends vue {
 }
 
 .title-area {
-    margin-top: 5rem;
+    margin-top: 20rem;
+    margin-bottom: 2rem;
     width: 100%;
-    height: 200px;
+    height: auto;
     overflow-y: hidden;
     overflow-x: hidden;
 }
@@ -249,6 +255,15 @@ export default class FirstLook extends vue {
     text-align: center;
     font-size: 20px;
     margin: 3% 5%;
+}
+
+.slide-down {
+    position: absolute;
+    top: auto;
+    bottom: 1rem;
+    text-align: center;
+    font-size: 50px;
+    color: grey;
 }
 
 h1 {

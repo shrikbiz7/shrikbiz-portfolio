@@ -16,7 +16,7 @@
         <WorkLook />
 
         <ProjectLook />
-        <div style="min-height:100vh"></div>
+        <!-- <div style="min-height:100vh; background: white"></div> -->
     </div>
 </template>
 
