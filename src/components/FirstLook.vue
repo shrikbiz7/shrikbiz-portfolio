@@ -1,7 +1,7 @@
 <template>
     <div>
         <Background />
-        <v-row style="z-index: 2" v-scroll:#scroll-target="onScroll" justify="center" class="masterhead">
+        <v-row style="z-index: 3" v-scroll:#scroll-target="onScroll" justify="center" class="masterhead">
             <v-col cols="auto" width="100vw">
                 <div class="title-area" justify="center" align="center">
                     <h1
