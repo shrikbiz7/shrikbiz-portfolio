@@ -11,7 +11,7 @@
         <v-lazy
             v-model="isActive"
             :options="{
-                threshold: 0.5,
+                threshold: 0.2,
             }"
             height="150px"
             transition="fade-transition"
@@ -48,7 +48,7 @@ body {
 
 .typewriter h1 {
     color: #fffa6b;
-    border-right: 10px solid rgba(222, 255, 34, 0.743);
+    border-right: 10px solid rgba(167, 255, 15, 0.907);
     white-space: nowrap;
     overflow: hidden;
     width: 410px;
@@ -59,7 +59,7 @@ body {
 
 .typewriter #line-1 {
     color: #ff8269;
-    border-right: 10px solid rgba(222, 255, 34, 0.743);
+    border-right: 10px solid rgba(167, 255, 15, 0.907);
     white-space: nowrap;
     overflow: hidden;
     width: 1000px;
@@ -76,10 +76,10 @@ body {
         border-right: none;
     }
     0.1% {
-        border-right: 10px solid rgb(226, 255, 63);
+        border-right: 10px solid rgba(167, 255, 15, 0.907);
     }
     99.9% {
-        border-right: 10px solid rgb(226, 255, 63);
+        border-right: 10px solid rgba(167, 255, 15, 0.907);
     }
     100% {
         border: none;
