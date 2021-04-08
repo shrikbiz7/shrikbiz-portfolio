@@ -19,7 +19,7 @@
             <div class="typewriter" justify="left" align="left">
                 <h1>Hi there, I'm Shrikant.</h1>
                 <p id="line-1">
-                    I am a FrontEnd Software Developer form Denver, Colorado with ~3 years of experience.
+                    I am a FrontEnd Software Developer from Denver, Colorado with ~3 years of experience.
                 </p>
                 <p id="line-2">
                     Even though I have worked with all three major-player of web development -
@@ -28,16 +28,16 @@
                     Angular, React, and Vue, I majorly work with React and Vue.
                 </p>
                 <p id="line-4">
-                    I like working with Javascript. Recently I started Instagram page
+                    I like working with Javascript. Recently I an started Instagram page
                 </p>
                 <p id="line-5">
-                    to share my knowledge about Javascript with other upcoming web developer.
+                    to share my knowledge about Javascript with other upcoming web developers.
                 </p>
                 <p id="line-6">
                     When I am not programming, I like to cook, bike and/or hike, gym or
                 </p>
                 <p id="line-7">
-                    play with Data Struture & Algorithms.
+                    play with Data Structure & Algorithms.
                 </p>
             </div>
         </v-lazy>
