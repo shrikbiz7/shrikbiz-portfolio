@@ -16,28 +16,29 @@
             height="auto"
             transition="fade-transition"
         >
-            <div>
-                <div class="typewriter" justify="left" align="left">
-                    <h1>Hi there, I'm Shrikant.</h1>
-                    <p id="line-1">
-                        I am a FrontEnd Software Developer form Denver, Colorado with ~3 years of experience.
-                    </p>
-                    <p id="line-2">
-                        Even though I have worked with all three major-player of web development - Angular, React, and
-                        Vue,
-                    </p>
-                    <p id="line-3">
-                        I majorly work with React and Vue. I like working with Javascript.
-                    </p>
-                    <p id="line-4">
-                        Recently I started Instagram page to share my knowledge about Javascript with other upcoming web
-                        developer.
-                    </p>
-                    <p id="line-5">
-                        When I am not programming, I like to cook, bike and/or hike, gym or play with Data Struture &
-                        Algorithms.
-                    </p>
-                </div>
+            <div class="typewriter" justify="left" align="left">
+                <h1>Hi there, I'm Shrikant.</h1>
+                <p id="line-1">
+                    I am a FrontEnd Software Developer form Denver, Colorado with ~3 years of experience.
+                </p>
+                <p id="line-2">
+                    Even though I have worked with all three major-player of web development -
+                </p>
+                <p id="line-3">
+                    Angular, React, and Vue, I majorly work with React and Vue.
+                </p>
+                <p id="line-4">
+                    I like working with Javascript. Recently I started Instagram page
+                </p>
+                <p id="line-5">
+                    to share my knowledge about Javascript with other upcoming web developer.
+                </p>
+                <p id="line-6">
+                    When I am not programming, I like to cook, bike and/or hike, gym or
+                </p>
+                <p id="line-7">
+                    play with Data Struture & Algorithms.
+                </p>
             </div>
         </v-lazy>
     </div>
@@ -68,88 +69,110 @@ export default class Intro extends Vue {
 </script>
 
 <style scoped lang="scss">
-body {
-    color: #fffa6b;
-    font-family: 'Fira Code', monospace;
-}
-
 .typewriter {
     position: relative;
     top: 35%;
     left: 20rem;
+    margin-bottom: 5rem;
+    font-family: 'Fira Code', monospace;
+    background: #1212127e;
 }
 
 .typewriter h1 {
-    color: #fffa6b;
+    color: #858585;
     border-right: 10px solid rgba(167, 255, 15, 0.907);
     white-space: nowrap;
     overflow: hidden;
-    width: 410px;
+    width: 450px;
     white-space: nowrap;
     overflow: hidden;
+    margin-bottom: 2rem;
     animation: typewriter 2s steps(30) 1s 1 normal both;
-    padding-bottom: 2rem;
 }
 
 .typewriter #line-1 {
-    color: #ff8269;
+    color: #cbcbcb;
     border-right: 10px solid rgba(167, 255, 15, 0.907);
     white-space: nowrap;
     overflow: hidden;
-    width: 950px;
+    width: 1230px;
     white-space: nowrap;
     overflow: hidden;
-    animation: typewriter 4s steps(50) 1s 1 normal both;
-    animation-delay: 3.5s;
     font-size: 1.5rem;
+    animation: typewriter 3s steps(50) 1s 1 normal both;
+    animation-delay: 3s;
 }
 .typewriter #line-2 {
-    color: #ff8269;
+    color: #cbcbcb;
     border-right: 10px solid rgba(167, 255, 15, 0.907);
     white-space: nowrap;
     overflow: hidden;
     width: 1080px;
     white-space: nowrap;
     overflow: hidden;
-    animation: typewriter 4s steps(50) 1s 1 normal both;
-    animation-delay: 3.5s;
     font-size: 1.5rem;
+    animation: typewriter 3s steps(50) 1s 1 normal both;
+    animation-delay: 6s;
 }
 .typewriter #line-3 {
-    color: #ff8269;
+    color: #cbcbcb;
     border-right: 10px solid rgba(167, 255, 15, 0.907);
     white-space: nowrap;
     overflow: hidden;
-    width: 685px;
+    width: 850px;
     white-space: nowrap;
     overflow: hidden;
-    animation: typewriter 4s steps(50) 1s 1 normal both;
-    animation-delay: 3.5s;
     font-size: 1.5rem;
+    animation: typewriter 3s steps(50) 1s 1 normal both;
+    animation-delay: 9s;
 }
 .typewriter #line-4 {
-    color: #ff8269;
+    color: #cbcbcb;
     border-right: 10px solid rgba(167, 255, 15, 0.907);
     white-space: nowrap;
     overflow: hidden;
-    width: 1185px;
+    width: 950px;
     white-space: nowrap;
     overflow: hidden;
-    animation: typewriter 4s steps(50) 1s 1 normal both;
-    animation-delay: 3.5s;
     font-size: 1.5rem;
+    animation: typewriter 3s steps(55) 1s 1 normal both;
+    animation-delay: 12s;
 }
 .typewriter #line-5 {
-    color: #ff8269;
+    color: #cbcbcb;
     border-right: 10px solid rgba(167, 255, 15, 0.907);
     white-space: nowrap;
     overflow: hidden;
-    width: 1120px;
+    width: 1050px;
     white-space: nowrap;
     overflow: hidden;
-    animation: typewriter 4s steps(50) 1s 1 normal both;
-    animation-delay: 3.5s;
     font-size: 1.5rem;
+    animation: typewriter 3s steps(55) 1s 1 normal both;
+    animation-delay: 15s;
+}
+.typewriter #line-6 {
+    color: #cbcbcb;
+    border-right: 10px solid rgba(167, 255, 15, 0.907);
+    white-space: nowrap;
+    overflow: hidden;
+    width: 1000px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.5rem;
+    animation: typewriter 3s steps(55) 1s 1 normal both;
+    animation-delay: 18s;
+}
+.typewriter #line-7 {
+    color: #cbcbcb;
+    border-right: 10px solid rgba(167, 255, 15, 0.907);
+    white-space: nowrap;
+    overflow: hidden;
+    width: 550px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.5rem;
+    animation: typewriter 1.5s steps(25) 1s 1 normal both;
+    animation-delay: 21s;
 }
 
 @keyframes typewriter {
