@@ -5,14 +5,12 @@
                 Author:
                 <a href="mailto: shrikbiz@gmail.com" style="text-decoration: none; color: white">
                     <strong>Shrikant Patel</strong>
-                    <span class="accent">
+                    <!-- <span class="accent">
                         {{ scrollVariable }}
-                    </span>
+                    </span> -->
                 </a>
             </v-col>
-            <v-col class="py-4 pl-9 text-right white--text" cols="auto">
-                |
-            </v-col>
+            <v-col class="py-4 pl-9 text-right white--text" cols="auto"> | </v-col>
             <v-col class="py-4 pl-9 text-right white--text" cols="auto">
                 <a href="https://www.linkedin.com/in/patel-shrikant/" style="text-decoration: none">
                     <v-icon color="white">mdi-linkedin</v-icon>
@@ -48,6 +46,12 @@
                         maxWidth="100"
                     />
                 </a>
+            </v-col>
+            <v-col class="py-4 pl-9 text-right white--text" cols="auto">
+                |
+            </v-col>
+            <v-col class="py-4 pl-9 text-right white--text" cols="auto">
+                Version: Pre-Release
             </v-col>
         </v-row>
     </v-footer>

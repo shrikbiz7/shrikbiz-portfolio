@@ -131,7 +131,7 @@ export default class Intro extends Vue {
     border-right: 10px solid rgba(167, 255, 15, 0.907);
     white-space: nowrap;
     overflow: hidden;
-    width: 950px;
+    width: 980px;
     white-space: nowrap;
     overflow: hidden;
     font-size: 1.5rem;

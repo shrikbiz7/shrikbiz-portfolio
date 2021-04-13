@@ -36,7 +36,7 @@
                         :jobDetails="{
                             jobTitle: 'MIPS-MACRA & HRMS',
                             description: tempDescription,
-                            logo: `ecw`,
+                            logo: `eCW`,
                         }"
                     />
                 </v-col>
