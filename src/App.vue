@@ -40,7 +40,6 @@ export default class App extends Vue {
         if (!isModuleRegistered) this.$store.registerModule(STORE_KEY, store);
     }
     handleDone() {
-        console.log('object');
         this.isLoading = true;
     }
 

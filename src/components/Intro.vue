@@ -1,5 +1,5 @@
 <template>
-    <div style="position: static" justify="center" align="center">
+    <div justify="center" align="center">
         <v-img
             gradient="to top right, rgba(100,115,201,.1), rgba(25,32,72,.3)"
             src="@/assets/myPhoto.png"
@@ -28,7 +28,7 @@
                     Angular, React, and Vue, I majorly work with React and Vue.
                 </p>
                 <p id="line-4">
-                    I like working with Javascript. Recently I an started Instagram page
+                    I love working with Javascript. Recently I an started Instagram page
                 </p>
                 <p id="line-5">
                     to share my knowledge about Javascript with other upcoming web developers.

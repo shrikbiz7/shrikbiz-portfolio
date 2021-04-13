@@ -48,10 +48,14 @@
                 </a>
             </v-col>
             <v-col class="py-4 pl-9 text-right white--text" cols="auto">
-                |
+                <span class="version">
+                    |
+                </span>
             </v-col>
             <v-col class="py-4 pl-9 text-right white--text" cols="auto">
-                Version: Pre-Release
+                <span class="version">
+                    Version: Beta
+                </span>
             </v-col>
         </v-row>
     </v-footer>
@@ -66,3 +70,9 @@ export default class Footer extends Vue {
     @Prop() scrollVariable: any;
 }
 </script>
+
+<style scoped>
+.version {
+    color: rgba(149, 149, 149, 0.434);
+}
+</style>
